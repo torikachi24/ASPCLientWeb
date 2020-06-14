@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+div.config {
+    display: table;
+    border: 4px solid rgba(127, 177, 61, 0.856);
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    height: 85vh;
+    width: 73vh;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 20px;
+}
+
+div.int-box {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.label {
+    color: azure;
+    font-weight: 500;
+    margin-bottom: 70px;
+    vertical-align: middle;
+    margin-left:16px;
+}
+.textboxurl {
+    margin: 10px 20px;
+    width: 50vh;
+    height: 20px;
+    border: none;
+    border-bottom: 2px solid #7394545e;
+    color: white;
+    padding: 10px 10px;
+    background-color: transparent;
+}
+.buttonfind {
+    display: box;
+    position: relative;
+    border: none;
+    color: rgb(61, 58, 58);
+    padding: 10px;
+    font-weight: 700;
+    background-color: rgb(127, 177, 61);
+    border-radius: 5px;
+}
+
+    .buttonfind:hover {
+        background-color: #fff;
+    }
+
+.listbox {
+    width: 66vh;
+    vertical-align: middle;
+    margin: 10px 20px;
+    height: 30vh;
+    background-color: rgb(15,39,51);
+    border: 1px solid antiquewhite;
+    color: azure;
+    overflow-x :auto;
+    overflow-y:auto;
+     padding-top:5px;
+}
+.inline-rb {
+    justify-content:center;
+    font-weight: 600;
+    font-size: medium;
+    width: 70vh;
+}
+
+.inline-rb input[type="radio"] {
+    width: auto;
+    margin-left:10px;
+}
+
+.inline-rb label {
+    display: inline-block;
+}
+.text {
+    margin:  5px 20px;
+    width: 35vh;
+    border: none;
+    border-bottom: 2px solid #7394545e;
+    color: white;
+    padding: 10px 10px;
+    background-color: transparent;
+}
+.connect {
+    position: relative;
+    border: none;
+    color: rgb(61, 58, 58);
+    padding: 10px;
+    font-weight: 700;
+    background-color: rgb(127, 177, 61);
+    border-radius: 5px;
+    width:50vh;
+    height:50px;
+    font-size:large;
+    margin-left:10vh;
+    margin-top:10px;
+    cursor:pointer;
+}
+    .connect:hover {
+        background-color: #fff;
+    }
+
+.config h1 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 8vh;
+    color: #4690c4;
+}
+
+.config label {
+    float: left;
+    margin-left: 5%;
+    margin-bottom: 3vh;
+    display: flex;
+    color: #fff;
+}
+
+.config .name {
+    padding:0px;
+    display: inline-block;
+    margin-right: 5vh;
+    width: 28vh;
+    align-items: center;
+    justify-content: center;
+    font-size: medium;
+}
+
+.config .mark {
+    margin-right: 3vh;
+    font-weight: 500;
+    font-size: 40px;
+}
+.output {
+    border:none;
+    border-bottom: 2px solid #7394545e;
+    background-color: transparent;
+    padding: 5px 10px;
+    width: 100%;
+    color:azure;
+}
+.lbrun {
+    animation: move 20s infinite;
+    position: relative;
+    color: rgb(9, 151, 127);
+    font-weight: bold;
+}
+
+#div1 {
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes move {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: 85%;
+    }
+}

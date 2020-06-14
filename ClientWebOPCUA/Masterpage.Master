@@ -1,0 +1,93 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Masterpage.master.cs" Inherits="ClientWebOPCUA.Masterpage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="~/Content/styleMaster.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function mess(ico, tle, txt) {
+            swal.fire({
+                icon: ico,
+                title: tle,
+                text: txt,
+            })
+        }
+         location.reload();
+        function messtimer(ico, tle) {
+            swal.fire({
+                position: 'top',
+                icon: ico,
+                title: tle,
+                showConfirmButton: false,
+                timer: 1000,
+            })
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        <div class="wrapper">
+            <div class="sidebar">
+                <h2>OPC UA
+                    <br>
+                    Client</h2>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <ul id="list" runat="server">
+                            <li runat="server" id="Connect"><a class="link1" href="/Connect.aspx"><i class="fas fa-plug"></i>Connect</a></li>
+                            <li runat="server" id="Browse"><a href="/Browse.aspx"><i class="fas fa-project-diagram"></i>Browse</a></li>
+                            <li runat="server" id="Rdwr"><a href="/Read_Write.aspx"><i class="fas fa-search"></i>Read/Write</a></li>
+                            <li runat="server" id="Subcribe"><a href="/Subcription.aspx"><i class="fas fa-folder-plus"></i>Subscript</a></li>
+                            <li><a href="#"><i class="fas fa-bookmark"></i>About</a></li>
+                            <li><a href="#"><i class="fas fa-address-book"></i>Contact Us</a></li>
+                            <li runat="server"><a href="#"><i class="fas fa-sign-out-alt"></i>DisConnect</a></li>
+                        </ul>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+
+                <div class="social_media">
+                    <a href="https://www.hcmut.edu.vn/vi">
+                        <img src="/Img/Logobktrans.png"></a>
+                    <a href="http://dca.dee.hcmut.edu.vn/">
+                        <img src="/Img/LogoAuto.png"></a>
+                </div>
+                <label class="Signature">Power by Me</label>
+            </div>
+            <div class="main_content">
+                <div class="header">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                </div>
+                <div class="info">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

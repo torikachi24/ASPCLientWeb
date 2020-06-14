@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+.grid {
+    color: #717171;
+    line-height: 25px;
+    display: grid;
+    margin: 20px 20px;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-gap: 15px;
+}
+.frame {
+    border: 4px solid rgba(127, 177, 61, 0.856);
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+}
+    #table {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        height: 600px;
+        width: 500px;
+    }
+.SubID {
+    border: none;
+    border-bottom: 1px solid #7394545e;
+    color: white;
+    padding: 5px 10px;
+    width: 50vh;
+    margin-bottom:10px;
+    background-color: transparent;
+}
+.btn {
+    background-color: rgb(127, 177, 61);
+    display: box;
+    position: relative;
+    margin: 10px;
+    border: none;
+    color: rgb(61, 58, 58);
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+}
+    .btn:hover {
+        background-color: #fff;
+    }
+.subtxt {
+    border:none;
+    order: none;
+    border-bottom: 1px solid #7394545e;
+    padding: 5px 10px;
+    width: 50vh;
+    height:10vh;
+    margin-bottom: 10px;
+}
+#config {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    height: 300px;
+    width: 500px;
+}
+    #gauge {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        height: 300px;
+        width: 500px;
+    }
+.lbrun {
+    animation: move 20s infinite;
+    position: relative;
+    color: rgb(9, 151, 127);
+    font-weight: bold;
+}
+
+#div1 {
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes move {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: 85%;
+    }
+}

@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+.config {
+    border: 4px solid rgba(127, 177, 61, 0.856);
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    height: 85vh;
+    width: 160vh;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 15px;
+}
+
+    .config h1 {
+        font-size: 50px;
+        text-align: center;
+        margin-top: 5vh;
+        margin-bottom: 8vh;
+        color: #4690c4;
+    }
+
+    .config label {
+        float: left;
+        margin-left: 10%;
+        margin-bottom: 5vh;
+        display: flex;
+        color: #fff;
+    }
+
+    .config .name {
+        display: block;
+        margin-right: 5vh;
+        width: 130px;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+    }
+
+    .config .mark {
+        margin-right: 5vh;
+        font-weight: 500;
+        font-size: 40px;
+    }
+
+.inread {
+    border: none;
+    border-bottom: 1px solid #7394545e;
+    color: white;
+    padding: 5px 10px;
+    width: 100vh;
+    background-color: transparent;
+}
+
+.output {
+    border:none;
+    border-bottom: 1px solid #7394545e;
+    background-color: transparent;
+    padding: 5px 10px;
+    width: 100vh;
+    color:azure;
+}
+
+.btn {
+    background-color: rgb(127, 177, 61);
+    display: box;
+    position: relative;
+    margin: 10px;
+    left: 32%;
+    border: none;
+    color: rgb(61, 58, 58);
+    padding: 10px 70px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #fff;
+}
+.lbrun {
+    animation: move 20s infinite;
+    position: relative;
+    color: rgb(9, 151, 127);
+    font-weight: bold;
+}
+
+#div1 {
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes move {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: 85%;
+    }
+}
