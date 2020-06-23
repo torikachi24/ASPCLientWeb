@@ -7,27 +7,53 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="stylesheet" type="text/css" href="~/Content/styleMaster.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/styleMaster.css"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script>
-        function mess(ico, tle, txt) {
-            swal.fire({
-                icon: ico,
-                title: tle,
-                text: txt,
+        function mess(icon, title, text) {
+            Swal.fire({
+                icon: icon,
+                title: title,
+                text: text
             })
         }
-         location.reload();
-        function messtimer(ico, tle) {
-            swal.fire({
-                position: 'top',
-                icon: ico,
-                title: tle,
+        function messtimer(icon, title) {
+            Swal.fire({
+                icon: icon,
+                title: title,
                 showConfirmButton: false,
-                timer: 1000,
+                timer: 1000
             })
-        }
+        };
+        //function input() {
+        //    Swal.fire({
+        //        title: 'Write New Value',
+        //        input: 'text',
+        //        inputAttributes: {
+        //            autocapitalize: 'off'
+        //        },
+        //        showCancelButton: true,
+        //        confirmButtonText: 'Write',
+        //        showLoaderOnConfirm: true,
+        //    }).then((result) => {
+        //        if (result.value) {
+        //            function GetName() {
+        //                PageMethods.Name(Success, Failure);
+        //            }
+
+        //            function Success(result) {
+        //                alert(result);
+        //            }
+
+        //            function Failure(error) {
+        //                alert(error);
+        //            }
+        //        }
+        //    })
+
+        //}
     </script>
 </head>
 <body>
@@ -51,31 +77,26 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
         <div class="wrapper">
             <div class="sidebar">
                 <h2>OPC UA
                     <br>
                     Client</h2>
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
-                        <ul id="list" runat="server">
-                            <li runat="server" id="Connect"><a class="link1" href="/Connect.aspx"><i class="fas fa-plug"></i>Connect</a></li>
-                            <li runat="server" id="Browse"><a href="/Browse.aspx"><i class="fas fa-project-diagram"></i>Browse</a></li>
-                            <li runat="server" id="Rdwr"><a href="/Read_Write.aspx"><i class="fas fa-search"></i>Read/Write</a></li>
-                            <li runat="server" id="Subcribe"><a href="/Subcription.aspx"><i class="fas fa-folder-plus"></i>Subscript</a></li>
-                            <li><a href="#"><i class="fas fa-bookmark"></i>About</a></li>
-                            <li><a href="#"><i class="fas fa-address-book"></i>Contact Us</a></li>
-                            <li runat="server"><a href="#"><i class="fas fa-sign-out-alt"></i>DisConnect</a></li>
-                        </ul>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+                <ul id="list" runat="server">
+                    <li runat="server" id="Connect"><a class="link1" href="/Connect.aspx"><i class="fas fa-plug"></i>Connect</a></li>
+                    <li runat="server" id="Browse"><a href="/Browse.aspx"><i class="fas fa-project-diagram"></i>Browse</a></li>
+                    <li runat="server" id="Rdwr"><a href="/Read_Write.aspx"><i class="fas fa-search"></i>Read/Write</a></li>
+                    <li runat="server" id="Subcribe"><a href="/Subcription.aspx"><i class="fas fa-folder-plus"></i>Subscript</a></li>
+                    <li><a href="#"><i class="fas fa-bookmark"></i>About</a></li>
+                    <li runat="server" id="Disconnect"><a href="#" onserverclick="DisConnect" runat="server"><i class="fas fa-sign-out-alt"></i>DisConnect</a></li>
+                </ul>
 
                 <div class="social_media">
                     <a href="https://www.hcmut.edu.vn/vi">
-                        <img src="/Img/Logobktrans.png"></a>
+                        <img src="/Img/Logobktrans.png"/></a>
                     <a href="http://dca.dee.hcmut.edu.vn/">
-                        <img src="/Img/LogoAuto.png"></a>
+                        <img src="/Img/LogoAuto.png"/></a>
                 </div>
                 <label class="Signature">Power by Me</label>
             </div>

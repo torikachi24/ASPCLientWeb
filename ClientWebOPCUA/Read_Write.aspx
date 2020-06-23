@@ -13,14 +13,14 @@
         <label>
             <span class="name">Node ID</span>
             <span class="mark">:</span>
-            <asp:TextBox ID="TextBox1" CssClass="inread" runat="server"></asp:TextBox>
+            <asp:TextBox ID="ID" CssClass="inread" runat="server"></asp:TextBox>
         </label>
         <label>
             <span class="name">Data Read</span>
             <span class="mark">:</span>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                                <asp:TextBox ID="TextBox2" CssClass="output" runat="server" ReadOnly="True"></asp:TextBox>
+                                <asp:TextBox ID="read" CssClass="output" runat="server" ReadOnly="True"></asp:TextBox>
 
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -28,7 +28,7 @@
          <label>
             <span class="name">Data Write</span>
             <span class="mark">:</span>
-            <asp:TextBox ID="TextBox3" CssClass="output" runat="server" ReadOnly="False"></asp:TextBox>
+            <asp:TextBox ID="write" CssClass="output" runat="server" ReadOnly="False"></asp:TextBox>
         </label>
         <asp:Button ID="Button1" class="btn" runat="server" Text="Read" OnClick="Read_Click" />
         <asp:Button ID="Button2" class="btn" runat="server" Text="Write" OnClick="Write_Click" />

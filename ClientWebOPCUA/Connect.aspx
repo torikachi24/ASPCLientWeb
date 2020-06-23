@@ -10,26 +10,25 @@
     <link rel="Stylesheet" runat="server" type="text/css" href="Content/styleConnect.css" />
     <div class="config">
         <div class="intbox">
-          
-                    <asp:Label ID="Label1" CssClass="label" runat="server" Text="Get all available Endpoints of a server's or discovery server's URL:"></asp:Label>
-                    <asp:TextBox ID="discoveryTextBox" CssClass="textboxurl" runat="server" Font-Size="Medium"></asp:TextBox>
-                    <asp:Button  ID="GetEnpoints" CssClass="buttonfind" runat="server" Text="Get Endpoints" OnClick="GetEnpoints_Click"/>
-                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                <ContentTemplate>
-            <asp:ListBox ID="endpointListView" CssClass="listbox" runat="server" Font-Size="Medium" Font-Underline="False"></asp:ListBox>
-                    </ContentTemplate>
-            </asp:UpdatePanel>
-                    <asp:Label ID="Label2" CssClass="label" runat="server" Text="User Authentication"></asp:Label>
 
-                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Vertical" RepeatLayout="Table" TextAlign="Right" CssClass="inline-rb">
-                        <asp:ListItem Selected="True">Anonymous</asp:ListItem>
-                        <asp:ListItem>User/Password</asp:ListItem>
-                    </asp:RadioButtonList>
-                    <asp:RadioButtonList ID="RadioButtonList2" CssClass="Radiobtn" runat="server"></asp:RadioButtonList>
-                    <asp:TextBox ID="userTextBox" placeholder="User's Name" CssClass="text" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="pwTextBox" type="Password" placeholder="Your Password" CssClass="text" runat="server"></asp:TextBox>
-                    <asp:Button ID="ConnectBtn" CssClass="connect" runat="server" Text="Connect" OnClick="Connect_Click" />
-                
+            <asp:Label ID="Label1" CssClass="label" runat="server" Text="Get all available Endpoints of a server's or discovery server's URL:"></asp:Label>
+            <asp:TextBox ID="discoveryTextBox" CssClass="textboxurl" runat="server" Font-Size="Medium"></asp:TextBox>
+            <asp:Button ID="GetEnpoints" CssClass="buttonfind" runat="server" Text="Get Endpoints" OnClick="GetEnpoints_Click" />
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:ListBox ID="endpointListView" CssClass="listbox" runat="server" Font-Size="Medium" Font-Underline="False"></asp:ListBox>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <asp:Label ID="Label2" CssClass="label" runat="server" Text="User Authentication"></asp:Label>
+
+            <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Vertical" RepeatLayout="Table" TextAlign="Right" CssClass="inline-rb">
+                <asp:ListItem Selected="True">Anonymous</asp:ListItem>
+                <asp:ListItem>User/Password</asp:ListItem>
+            </asp:RadioButtonList>
+            <asp:RadioButtonList ID="RadioButtonList2" CssClass="Radiobtn" runat="server"></asp:RadioButtonList>
+            <asp:TextBox ID="userTextBox" placeholder="User's Name" CssClass="text" runat="server"></asp:TextBox>
+            <asp:TextBox ID="pwTextBox" type="Password" placeholder="Your Password" CssClass="text" runat="server"></asp:TextBox>
+            <asp:Button ID="ConnectBtn" CssClass="connect" runat="server" Text="Connect" OnClick="Connect_Click" />
         </div>
     </div>
 

@@ -13,13 +13,13 @@ namespace ClientWebOPCUA {
     public partial class Read {
         
         /// <summary>
-        /// TextBox1 control.
+        /// ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox ID;
         
         /// <summary>
         /// UpdatePanel1 control.
@@ -31,22 +31,22 @@ namespace ClientWebOPCUA {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// TextBox2 control.
+        /// read control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox read;
         
         /// <summary>
-        /// TextBox3 control.
+        /// write control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox write;
         
         /// <summary>
         /// Button1 control.

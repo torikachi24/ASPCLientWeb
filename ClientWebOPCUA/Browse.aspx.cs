@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Web.Services;
 
 namespace ClientWebOPCUA
 {
@@ -12,9 +13,24 @@ namespace ClientWebOPCUA
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            nodeTreeView.HoverNodeStyle.CssClass = "under";
+            (this.Master as Masterpage).MyButtonClicked += new EventHandler(Disconnect_MyButtonClicked);
             if (!IsPostBack)
             {
                 BrowsePage_Enter();
+            }
+        }
+
+        protected void Disconnect_MyButtonClicked(object sender, EventArgs e)
+        {
+            if (Connect.mySession != null && Connect.mySession.Connected == true)
+            {
+                Connect connect = new Connect();
+                connect.Disconnect();
+            }
+            else
+            {
+                return;
             }
         }
 
@@ -166,5 +182,31 @@ namespace ClientWebOPCUA
                 ClientScript.RegisterStartupScript(this.GetType(), "Alert", "mess('error','Opps...'," + ex.ToString() + ")", true);
             }
         }
+
+        protected void WriteBtn_Click(object sender, EventArgs e)
+        {
+            //ClientScript.RegisterStartupScript(this.GetType(), "Alert", "input()", true);
+            CustomTreeNode treeNode = (CustomTreeNode)nodeTreeView.SelectedNode;
+        }
+
+        protected void MonitorBtn_Click(object sender, EventArgs e)
+        {
+            CustomTreeNode treeNode = (CustomTreeNode)nodeTreeView.SelectedNode;
+            refDesc = (ReferenceDescription)treeNode.Tag;
+            //Subcription.Subcription_Browse(refDesc.NodeId.ToString());
+            Subcription pagesub = new Subcription();
+            pagesub.Subcription_Browse(refDesc.NodeId.ToString());
+            Server.Transfer("Subcription.aspx");
+
+        }
+
+        [WebMethod]
+        public static string Name()
+        {
+            string Name = "Hello Rohatash Kumar";
+            return Name;
+        }
+
+       
     }
 }

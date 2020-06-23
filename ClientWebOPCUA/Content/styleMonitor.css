@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+.frame {
+    border: 4px solid rgba(127, 177, 61, 0.856);
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    height: 90vh;
+    width: 155vh;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 15px;
+}
+
+.inread {
+    border: none;
+    border-bottom: 2px solid #7394545e;
+    color: white;
+    padding: 5px 10px;
+    left: 30%;
+    width: 100px;
+    background-color: transparent;
+}
+
+.textout {
+    border: none;
+    border-bottom: 2px solid #7394545e;
+    color: white;
+    padding: 5px 10px;
+    width: 100px;
+    height: 40px;
+    background-color: transparent;
+}
+
+.button {
+    background-color: rgb(127, 177, 61);
+    display: box;
+    position: relative;
+    left: 5%;
+    border: none;
+    color: rgb(61, 58, 58);
+    padding: 10px 10px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+    .button:hover {
+        background-color: #fff;
+    }
+
+.lbrun {
+    animation: move 20s infinite;
+    position: relative;
+    color: rgb(9, 151, 127);
+    font-weight: bold;
+}
+
+#div1 {
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes move {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: 85%;
+    }
+}

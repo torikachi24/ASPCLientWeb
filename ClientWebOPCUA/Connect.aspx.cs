@@ -4,8 +4,8 @@ using Siemens.UAClientHelper;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using System.Web;
 using System.Web.UI;
-using System.Linq;
 
 namespace ClientWebOPCUA
 {
@@ -15,6 +15,7 @@ namespace ClientWebOPCUA
 
         public static MonitoredItemNotification MonNotificate;
         public static MonitoredItem MonItem;
+        public static string Oldvalue;
         public static Session mySession;
         public static Subscription mySubscription;
         public static UAClientHelperAPI myClientHelperAPI;
@@ -22,8 +23,10 @@ namespace ClientWebOPCUA
         public static MonitoredItem myMonitoredItem;
         private List<String> myRegisteredNodeIdStrings;
         public static ReferenceDescriptionCollection myReferenceDescriptionCollection;
-        private List<string[]> myStructList;
+
+        //private List<string[]> myStructList;
         public static Int16 itemCount;
+
         private int cnt = -1;
         public static string datetime { get; set; }
         public int a;
@@ -32,30 +35,26 @@ namespace ClientWebOPCUA
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            //if (Session["ser"] != null && Session["ser"].ToString() != "")
-            //{
-            //    SerName.Text = Session["ser"].ToString();
-            //    SerUri.Text = Session["uri"].ToString();
-            //    Serc.Text = Session["serc"].ToString();
-            //    Status.Text = "Connected";
-            //    Sinced.Text = Session["sinced"].ToString();
-            //    ConnectBtn.Text = "Disconnect from server";
-            //}
-
+            (this.Master as Masterpage).MyButtonClicked += new EventHandler(Disconnect_MyButtonClicked);
             if (!IsPostBack)
             {
-                if (mySession != null)
+                if (mySession != null && mySession.Connected == true)
                 {
                     if (Session["endpoint"] != null && Session["endpoint"].ToString() != "")
                     {
                         var enp = Session["endpoint"] as EndpointDescription;
+                        var enps = Session["endpointlist"] as List<string>;
                         SerName.Text = enp.Server.ApplicationName.ToString();
                         SerUri.Text = enp.Server.ApplicationUri.ToString();
                         Serc.Text = enp.SecurityPolicyUri.ToString();
                         Status.Text = "Connected";
                         Sinced.Text = Session["sinced"].ToString();
                         ConnectBtn.Text = "Disconnect from server";
+                        foreach (string item in enps)
+                        {
+                            endpointListView.Items.Add(item);
+                        }
+                        discoveryTextBox.Text = Session["Urltext"].ToString();
                     }
                     else
                     {
@@ -73,23 +72,37 @@ namespace ClientWebOPCUA
             }
         }
 
+        protected void Disconnect_MyButtonClicked(object sender, EventArgs e)
+        {
+            if (mySession != null && mySession.Connected == true)
+            {
+                Disconnect();
+            }
+            else
+            {
+                return;
+            }
+        }
+
         private void ControlDisable()
         {
             Control browse = this.Page.Master.FindControl("list").FindControl("Browse");
             Control rdwr = this.Page.Master.FindControl("list").FindControl("Rdwr");
             Control subcribe = this.Page.Master.FindControl("list").FindControl("Subcribe");
+            Control disconnect = this.Page.Master.FindControl("list").FindControl("Disconnect");
             browse.Visible = false;
             rdwr.Visible = false;
             subcribe.Visible = false;
+            disconnect.Visible = false;
         }
 
         protected void GetEnpoints_Click(object sender, EventArgs e)
         {
-
             if (discoveryTextBox.Text != "")
             {
                 bool foundEndpoints = false;
                 endpointListView.Items.Clear();
+                Session["Urltext"] = discoveryTextBox.Text;
                 //The local discovery URL for the discovery server
                 string discoveryUrl = discoveryTextBox.Text;
                 try
@@ -103,12 +116,15 @@ namespace ClientWebOPCUA
                             {
                                 EndpointDescriptionCollection endpoints = myClientHelperAPI.GetEndpoints(url);
                                 foundEndpoints = foundEndpoints || endpoints.Count > 0;
+                                List<string> enps = new List<string>();
                                 foreach (EndpointDescription ep in endpoints)
                                 {
                                     string securityPolicy = ep.SecurityPolicyUri.Remove(0, 42);
                                     string key = "[" + ad.ApplicationName + "] " + " [" + ep.SecurityMode + "] " + " [" + securityPolicy + "] " + " [" + ep.EndpointUrl + "]";
+                                    enps.Add(key);
                                     endpointListView.Items.Add(key);
                                 }
+                                Session["endpointlist"] = enps;
                             }
                             catch (ServiceResultException sre)
                             {
@@ -193,7 +209,7 @@ namespace ClientWebOPCUA
                         //UI settings
                         ConnectBtn.Text = "Disconnect from server";
                         ControlEnable();
-                        ClientScript.RegisterStartupScript(this.GetType(), "Success", "messtimer('success','Connect Successfully')", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "Success", "messtimer('success','Connect Successful')", true);
 
                         //myCertForm = null;
                     }
@@ -212,13 +228,27 @@ namespace ClientWebOPCUA
             }
             else
             {
+                Disconnect();
                 //mySubscription.Delete(true);
-                myClientHelperAPI.Disconnect();
-                mySession = myClientHelperAPI.Session;
+            }
+        }
+
+        public void Disconnect()
+        {
+            myClientHelperAPI.Disconnect();
+            mySession = myClientHelperAPI.Session;
+            var page = (Page)HttpContext.Current.CurrentHandler;
+            string url = page.AppRelativeVirtualPath;
+            if (url == "~/Connect.aspx")
+            {
                 ControlDisable();
                 ResetUI();
-                ClientScript.RegisterStartupScript(this.GetType(), "Success", "messtimer('success','Disconnect Successfully')", true);
             }
+            else
+            {
+                Server.Transfer("Connect.aspx");
+            }
+            ClientScript.RegisterStartupScript(this.GetType(), "Success", "messtimer('success','Disconnect Successfully')", true);
         }
 
         private void ControlEnable()
@@ -226,9 +256,12 @@ namespace ClientWebOPCUA
             Control browse = this.Page.Master.FindControl("list").FindControl("Browse");
             Control rdwr = this.Page.Master.FindControl("list").FindControl("Rdwr");
             Control subcribe = this.Page.Master.FindControl("list").FindControl("Subcribe");
+            Control disconnect = this.Page.Master.FindControl("list").FindControl("Disconnect");
+
             browse.Visible = true;
             rdwr.Visible = true;
             subcribe.Visible = true;
+            disconnect.Visible = true;
         }
 
         private void ResetUI()
@@ -239,10 +272,10 @@ namespace ClientWebOPCUA
             Serc.Text = null;
             Status.Text = null;
             Sinced.Text = null;
-            endpointListView.Items.Clear();
             discoveryTextBox.Text = null;
             userTextBox.Text = null;
             pwTextBox.Text = null;
+            endpointListView.Items.Clear();
         }
 
         #region OpcEventHandlers
@@ -323,6 +356,5 @@ namespace ClientWebOPCUA
         }
 
         #endregion OpcEventHandlers
-     
     }
 }

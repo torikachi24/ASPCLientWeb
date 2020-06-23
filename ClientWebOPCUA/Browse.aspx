@@ -8,16 +8,51 @@
     <a id="div1" class="lbrun">I'm Client Browse Page</a>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <script src="Scripts/jquery-1.3.2.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-1.3.2.min.js" type="text / javascript"></script>
     <script src="Scripts/jquery.contextMenu.js" type="text/javascript"></script>
     <link href="jquery.contextMenu.css" rel="stylesheet" type="text/css" />
+    <style>
+        .under {
+            text-decoration: underline;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function input() {
+            Swal.fire({
+                title: 'Write New Value',
+                input: 'text',
+                inputAttributes: {
+                    autocapitalize: 'off'
+                },
+                showCancelButton: true,
+                confirmButtonText: 'Write',
+                showLoaderOnConfirm: true,
+            }).then((result) => {
+                if (result.value) {
 
+                    PageMethods.Name(Success, Failure);
+                    console.log("asdasdasd");
+
+                    function Success(result) {
+                        alert(result);
+                    }
+
+                    function Failure(error) {
+                        alert(error);
+                    }
+                }
+            })
+
+        }
+    </script>
     <link rel="stylesheet" href="/Content/styleBrowse.css" />
     <div class="config">
+        <asp:Button ID="MonitorBtn" CssClass="BtnEvent" runat="server" Text="Monitor" OnClick="MonitorBtn_Click"/>
+        <asp:Button ID="WriteBtn" CssClass="BtnEvent" runat="server" Text="Write" OnClick="WriteBtn_Click" />
         <asp:UpdatePanel ID="UpdatePanel1" runat="server" CssClass="panel">
             <ContentTemplate>
-                        <asp:Button ID="MonitorBtn" CssClass="BtnEvent" runat="server" Text="Monitor" />
-        <asp:Button ID="WriteBtn"  CssClass="BtnEvent" runat="server" Text="Write" />
 
                 <div id="MyTreeDiv" style="overflow: auto; height: 76vh;">
                     <cc1:CustomTreeView ID="nodeTreeView" Style="overflow: auto;" runat="server" OnSelectedNodeChanged="nodeTreeView_SelectedNodeChanged" ImageSet="Simple" ShowLines="True" LineImagesFolder="~/TreeLineImages">
@@ -28,39 +63,32 @@
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
-        <ul id="myMenu" class="contextMenu">
-            <li class="copy"><a href="#add">Add</a></li>
+
+        <%--<ul id="myMenu" class="contextMenu">
+            <li class="copy"><a href="#add" runat="server" OnServerClick="Unnamed_ServerClick">Add</a></li>
             <li class="edit"><a href="#edit">Edit</a></li>
             <li class="delete"><a href="#delete">Delete</a></li>
             <li class="quit separator"><a href="#cancel">Cancel</a></li>
-        </ul>
+        </ul>--%>
 
-   <script type="text/javascript">
+        <%--<script type="text/javascript">
 
             $(document).ready(function () {
                 $("#MyTreeDiv").contextMenu({
                     menu: 'myMenu'
-                }, function (action, el, pos) {
-                    alert(
-                        'Action: ' + action + '\n\n' +
-                        'Element text: ' + $(el).text() + '\n\n' +
-                        'GUID: ' + getGUID($(el).attr("href")) + '\n\n' +
-                        'X: ' + pos.x + '  Y: ' + pos.y + ' (relative to element)\n\n' +
-                        'X: ' + pos.docX + '  Y: ' + pos.docY + ' (relative to document)'
-                    );
                 });
             });
-            function getGUID(mystr) {
-                var reGUID = /\w{8}[-]\w{4}[-]\w{4}[-]\w{4}[-]\w{12}/g //regular expression defining GUID
-                var retArr = [];
-                var retval = '';
-                retArr = mystr.match(reGUID);
-                if (retArr != null) {
-                    retval = retArr[retArr.length - 1];
-                }
-                return retval;
-            }
-        </script>
+            //function getGUID(mystr) {
+            //    var reGUID = /\w{8}[-]\w{4}[-]\w{4}[-]\w{4}[-]\w{12}/g //regular expression defining GUID
+            //    var retArr = [];
+            //    var retval = '';
+            //    retArr = mystr.match(reGUID);
+            //    if (retArr != null) {
+            //        retval = retArr[retArr.length - 1];
+            //    }
+            //    return retval;
+            //}
+        </script>--%>
     </div>
     <div class="config">
         <h1>Node</h1>
