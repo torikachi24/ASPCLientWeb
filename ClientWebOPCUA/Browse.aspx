@@ -49,11 +49,8 @@
     </script>
     <link rel="stylesheet" href="/Content/styleBrowse.css" />
     <div class="config">
-        <asp:Button ID="MonitorBtn" CssClass="BtnEvent" runat="server" Text="Monitor" OnClick="MonitorBtn_Click"/>
-        <asp:Button ID="WriteBtn" CssClass="BtnEvent" runat="server" Text="Write" OnClick="WriteBtn_Click" />
         <asp:UpdatePanel ID="UpdatePanel1" runat="server" CssClass="panel">
             <ContentTemplate>
-
                 <div id="MyTreeDiv" style="overflow: auto; height: 76vh;">
                     <cc1:CustomTreeView ID="nodeTreeView" Style="overflow: auto;" runat="server" OnSelectedNodeChanged="nodeTreeView_SelectedNodeChanged" ImageSet="Simple" ShowLines="True" LineImagesFolder="~/TreeLineImages">
                         <HoverNodeStyle Font-Underline="True" ForeColor="#FFFFFF" />

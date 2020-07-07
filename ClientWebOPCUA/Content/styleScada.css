@@ -1,0 +1,754 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+.frame {
+    border: 4px solid rgba(127, 177, 61, 0.856);
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    height: 90vh;
+    width: 155vh;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 15px;
+}
+
+.button {
+    background-color: rgb(127, 177, 61);
+    display: box;
+    position: relative;
+    left: 5%;
+    border: none;
+    color: rgb(61, 58, 58);
+    padding: 10px 10px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+    .button:hover {
+        background-color: #fff;
+    }
+
+.lbrun {
+    animation: move 20s infinite;
+    position: relative;
+    color: rgb(9, 151, 127);
+    font-weight: bold;
+}
+
+#div1 {
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes move {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: 85%;
+    }
+}
+
+.verticalpipe {
+    height: 200px;
+    width: 15px;
+    position: absolute;
+    top: 50px;
+    left: 12px;
+}
+
+.tee {
+    width: 29px;
+    position: absolute;
+    top: 230px;
+    left: 12px;
+}
+
+.verticalpipe1 {
+    height: 200px;
+    width: 15px;
+    position: absolute;
+    top: 255px;
+    left: 12px;
+}
+
+.curve {
+    width: 28px;
+    position: absolute;
+    top: 449px;
+    left: 12px;
+}
+
+.horizonpipe {
+    height: 15px;
+    width: 102px;
+    position: absolute;
+    top: 236.8px;
+    left: 33px;
+}
+
+.horizonpipe1 {
+    height: 14px;
+    width: 103px;
+    position: absolute;
+    top: 463px;
+    left: 32px;
+}
+
+.curve1 {
+    width: 30px;
+    position: absolute;
+    top: 222px;
+    left: 133px;
+}
+
+.curve2 {
+    width: 28.8px;
+    position: absolute;
+    top: 448px;
+    left: 133px;
+}
+
+.curve3 {
+    width: 32px;
+    position: absolute;
+    top: 195px;
+    left: 131px;
+}
+
+.curve4 {
+    width: 31.5px;
+    position: absolute;
+    top: 420px;
+    left: 130.8px;
+}
+
+.pump1 {
+    width: 80px;
+    height: 50px;
+    position: absolute;
+    top: 173px;
+    left: 60px;
+}
+
+.pump2 {
+    width: 80px;
+    height: 50px;
+    position: absolute;
+    top: 397px;
+    left: 60px;
+}
+
+.verticalpipe2 {
+    height: 90px;
+    width: 10px;
+    position: absolute;
+    top: 83px;
+    left: 120px;
+}
+
+.verticalpipe3 {
+    height: 90px;
+    width: 10px;
+    position: absolute;
+    top: 307px;
+    left: 120px;
+}
+
+.curve5 {
+    width: 19px;
+    position: absolute;
+    top: 64px;
+    left: 120px;
+}
+
+.curve6 {
+    width: 19px;
+    position: absolute;
+    top: 288px;
+    left: 120px;
+}
+
+.horizonpipe2 {
+    height: 9.8px;
+    width: 50px;
+    position: absolute;
+    top: 64px;
+    left: 139px;
+}
+
+.horizonpipe3 {
+    height: 9.8px;
+    width: 50px;
+    position: absolute;
+    top: 288px;
+    left: 139px;
+}
+
+#chart-container1 {
+    position: absolute;
+    left: 162px;
+    top: 70px;
+    width: auto;
+    height: auto;
+}
+
+#label1 {
+    position: absolute;
+    top: 252px;
+    left: 165px;
+    height: 20px;
+    width: 90px;
+    background-color: #0f2733;
+}
+
+.curve7 {
+    width: 19px;
+    position: absolute;
+    top: 64px;
+    left: 188px;
+}
+
+.curve8 {
+    width: 20px;
+    position: absolute;
+    top: 288px;
+    left: 189px;
+}
+
+#chart-container2 {
+    position: absolute;
+    left: 162px;
+    top: 290px;
+    width: auto;
+    height: auto;
+}
+
+#label2 {
+    position: absolute;
+    top: 475px;
+    left: 165px;
+    height: 20px;
+    width: 90px;
+    background-color: #0f2733;
+}
+
+.horizonpipe4 {
+    height: 15px;
+    width: 220px;
+    position: absolute;
+    top: 213px;
+    left: 288px;
+}
+
+.horizonpipe5 {
+    height: 15px;
+    width: 220px;
+    position: absolute;
+    top: 433px;
+    left: 288px;
+}
+
+.valve1 {
+    position: absolute;
+    top: 174px;
+    left: 365px;
+}
+
+.valve2 {
+    position: absolute;
+    top: 394px;
+    left: 365px;
+}
+
+.verticalpipe4 {
+    height: 430px;
+    width: 30px;
+    position: absolute;
+    top: 50px;
+    left: 500px;
+}
+
+.bottom {
+    position: absolute;
+    top: 478px;
+    left: 500px;
+    width: 30px;
+}
+
+.sensor1 {
+    position: absolute;
+    height: 100px;
+    width: 30px;
+    left: 255px;
+    top: 60px;
+}
+
+.sensor2 {
+    position: absolute;
+    height: 100px;
+    width: 30px;
+    left: 255px;
+    top: 280px;
+}
+
+.gate1 {
+    position: absolute;
+    top: 60px;
+    left: 545px;
+    height: 180px;
+    width: 150px;
+}
+
+.horizonpipe6 {
+    height: 15px;
+    width: 30px;
+    position: absolute;
+    top: 220px;
+    left: 530px;
+}
+
+.gate2 {
+    position: absolute;
+    top: 290px;
+    left: 545px;
+    height: 180px;
+    width: 150px;
+}
+
+.horizonpipe7 {
+    height: 15px;
+    width: 30px;
+    position: absolute;
+    top: 440px;
+    left: 531px;
+}
+
+.flower1 {
+    position: absolute;
+    top: 225px;
+    left: 585px;
+    width: 300px;
+    height: 60px;
+}
+
+.sensor3 {
+    position: absolute;
+    top: 220px;
+    left: 845px;
+    width: 25px;
+    height: 50px;
+}
+
+.flower2 {
+    position: absolute;
+    top: 455px;
+    left: 585px;
+    width: 300px;
+    height: 60px;
+}
+
+.sensor4 {
+    position: absolute;
+    top: 448px;
+    left: 845px;
+    width: 25px;
+    height: 50px;
+}
+
+div.divpump1 {
+    position: absolute;
+    height: 115px;
+    width: 215px;
+    left: 12px;
+    top: 520px;
+    padding: 3px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgba(120, 255, 255, 0.68);
+}
+
+div.divpump2 {
+    position: absolute;
+    height: 115px;
+    width: 215px;
+    left: 12px;
+    top: 636px;
+    padding: 3px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgba(120, 255, 255, 0.68);
+}
+
+div.divtank1 {
+    position: absolute;
+    height: 231px;
+    width: 215px;
+    left: 230px;
+    top: 520px;
+    padding: 3px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgba(120, 255, 255, 0.68);
+}
+
+div.divtank2 {
+    position: absolute;
+    height: 231px;
+    width: 215px;
+    left: 455px;
+    top: 520px;
+    padding: 3px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgba(120, 255, 255, 0.68);
+}
+
+div.divgate1 {
+    position: absolute;
+    height: 115px;
+    width: 210px;
+    left: 675px;
+    top: 520px;
+    padding: 3px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgba(120, 255, 255, 0.68);
+}
+
+div.divgate2 {
+    position: absolute;
+    height: 115px;
+    width: 210px;
+    left: 675px;
+    top: 638px;
+    padding: 3px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgba(120, 255, 255, 0.68);
+}
+
+div.intro {
+    position: absolute;
+    height: 365px;
+    width: 350px;
+    left: 895px;
+    top: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgba(120, 255, 255, 0.68);
+}
+
+div.divmainboard {
+    position: absolute;
+    height: 345px;
+    width: 350px;
+    left: 895px;
+    top: 408px;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgba(120, 255, 255, 0.68);
+}
+
+h3 {
+    text-align: center;
+    color: #06c6bc;
+}
+
+h1 {
+    text-align: center;
+    color: #06c6bc;
+}
+
+.sta_pump1 {
+    position: absolute;
+    left: 10px;
+    padding: 5px;
+    font-size: 20px;
+    width: 100px;
+}
+
+.sto_pump1 {
+    position: absolute;
+    left: 10px;
+    top: 70px;
+    padding: 5px;
+    font-size: 20px;
+    width: 100px;
+}
+
+.led_pump1 {
+    position: absolute;
+    left: 117px;
+    top: 21px;
+    padding: 5px;
+    font-size: 20px;
+    width: 90px;
+    height: 90px
+}
+
+.sta_pump2 {
+    position: absolute;
+    left: 10px;
+    padding: 5px;
+    font-size: 20px;
+    width: 100px;
+}
+
+.sto_pump2 {
+    position: absolute;
+    left: 10px;
+    top: 70px;
+    padding: 5px;
+    font-size: 20px;
+    width: 100px;
+}
+
+.led_pump2 {
+    position: absolute;
+    left: 117px;
+    top: 21px;
+    padding: 5px;
+    font-size: 20px;
+    width: 90px;
+    height: 90px
+}
+
+.ope_gate1 {
+    position: absolute;
+    left: 10px;
+    font-size: 20px;
+    width: 100px;
+}
+
+.sto_gate1 {
+    position: absolute;
+    left: 10px;
+    top: 83px;
+    font-size: 20px;
+    width: 100px;
+}
+
+.clo_gate1 {
+    position: absolute;
+    left: 10px;
+    top: 55px;
+    font-size: 20px;
+    width: 100px;
+}
+
+.led_gate1 {
+    position: absolute;
+    left: 120px;
+    top: 25px;
+    width: 80px;
+    height: 80px
+}
+
+
+
+.led_gate2 {
+    position: absolute;
+    left: 120px;
+    top: 25px;
+    width: 80px;
+    height: 80px
+}
+
+.ope_gate2 {
+    position: absolute;
+    left: 10px;
+    font-size: 20px;
+    width: 100px;
+}
+
+.sto_gate2 {
+    position: absolute;
+    left: 10px;
+    top: 83px;
+    font-size: 20px;
+    width: 100px;
+}
+
+.clo_gate2 {
+    position: absolute;
+    left: 10px;
+    top: 55px;
+    font-size: 20px;
+    width: 100px;
+}
+
+
+
+.lv_tank1 {
+    text-align: center;
+    left:50px;
+    position:absolute;
+    top:30px;
+}
+
+.sta_tank1 {
+    text-align: center;
+    left: 50px;
+    position: absolute;
+    top: 45px;
+}
+
+.lv_tank2 {
+    text-align: center;
+    left: 50px;
+    position: absolute;
+    top: 30px;
+}
+
+.sta_tank2 {
+    text-align: center;
+    left: 50px;
+    position: absolute;
+    top: 45px;
+}
+
+.ope_val1 {
+    position: absolute;
+    left: 10px;
+    font-size: 20px;
+    padding: 10px 20px;
+    top: 160px;
+}
+
+.clo_val1 {
+    position: absolute;
+    left: 110px;
+    font-size: 20px;
+    padding: 10px 20px;
+    top: 160px;
+}
+
+.ope_val2 {
+    position: absolute;
+    left: 10px;
+    font-size: 20px;
+    padding: 10px 20px;
+    top: 160px;
+}
+
+.clo_val2 {
+    position: absolute;
+    left: 110px;
+    font-size: 20px;
+    padding: 10px 20px;
+    top: 160px;
+}
+
+.lobk {
+    position: absolute;
+    left: 50px;
+    top: 220px;
+    height: 130px;
+    width: 130px;
+    opacity: 0.8;
+}
+
+.loat {
+    position: absolute;
+    left: 200px;
+    top: 220px;
+    height: 130px;
+    width: 130px;
+    opacity: 0.8;
+}
+
+#l1 {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 100px;
+}
+
+#l2 {
+    margin-left: 30px;
+    margin-right: 120px;
+    color: rgb(179, 179, 179);
+}
+
+#l3 {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 150px;
+}
+
+#l4 {
+    margin-left: 30px;
+    margin-right: 100px;
+    color: rgb(179, 179, 179);
+}
+
+#l5 {
+    margin-left: 30px;
+    margin-right: 100px;
+    color: rgb(179, 179, 179);
+}
+
+.emer {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 230px;
+    left: 100px;
+}
+
+.reset {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 280px;
+    left: 210px;
+}
+
+.label_main {
+    text-align: center;
+    font-size: large;
+    position: absolute;
+    top: 43px;
+    left: 150px;
+}
+
+.fault_main {
+    text-align: center;
+    font-size: large;
+    position: absolute;
+    top: 123px;
+    left: 150px;
+}
+
+.tabcontain {
+    position: absolute;
+    top: 35px;
+    left: 205px;
+    width: 1255px;
+}
+
+#lb_valve1 {
+    margin-top: 50px;
+}
+
+#lb_valve2 {
+    margin-top: 50px;
+}
+.led_status{
+    position:absolute;
+    height:50px;
+    width:50px;
+    top:66px;
+    left:149px;
+}
+.led_fault {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 145px;
+    left: 149px;
+}

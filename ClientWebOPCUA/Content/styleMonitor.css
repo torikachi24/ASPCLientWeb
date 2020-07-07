@@ -17,17 +17,7 @@
     color: white;
     padding: 5px 10px;
     left: 30%;
-    width: 100px;
-    background-color: transparent;
-}
-
-.textout {
-    border: none;
-    border-bottom: 2px solid #7394545e;
-    color: white;
-    padding: 5px 10px;
-    width: 100px;
-    height: 40px;
+    width: 100vh;
     background-color: transparent;
 }
 
@@ -67,4 +57,18 @@
     to {
         left: 85%;
     }
+}
+
+/*div.chartWrapper {
+    position: relative;
+    overflow: auto;
+    width: 100%;
+}
+
+div.chartContainer {
+    position: relative;
+    height: 300px;
+}*/
+.tabcontain {
+    width: 1180px;
 }

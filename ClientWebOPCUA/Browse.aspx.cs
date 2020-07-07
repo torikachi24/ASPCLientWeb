@@ -182,24 +182,7 @@ namespace ClientWebOPCUA
                 ClientScript.RegisterStartupScript(this.GetType(), "Alert", "mess('error','Opps...'," + ex.ToString() + ")", true);
             }
         }
-
-        protected void WriteBtn_Click(object sender, EventArgs e)
-        {
-            //ClientScript.RegisterStartupScript(this.GetType(), "Alert", "input()", true);
-            CustomTreeNode treeNode = (CustomTreeNode)nodeTreeView.SelectedNode;
-        }
-
-        protected void MonitorBtn_Click(object sender, EventArgs e)
-        {
-            CustomTreeNode treeNode = (CustomTreeNode)nodeTreeView.SelectedNode;
-            refDesc = (ReferenceDescription)treeNode.Tag;
-            //Subcription.Subcription_Browse(refDesc.NodeId.ToString());
-            Subcription pagesub = new Subcription();
-            pagesub.Subcription_Browse(refDesc.NodeId.ToString());
-            Server.Transfer("Subcription.aspx");
-
-        }
-
+        
         [WebMethod]
         public static string Name()
         {

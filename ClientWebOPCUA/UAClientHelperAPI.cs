@@ -599,6 +599,7 @@ namespace Siemens.UAClientHelper
                 throw e;
             }
         }
+
         public string VariableRead(string node)
         {
             try

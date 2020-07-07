@@ -46,12 +46,14 @@
 .gridview {
     position: absolute;
     left: 117vh;
-    
+    overflow-y: scroll;
+    overflow-x: scroll;
     width: 62vh;
+    height: 50vh;
 }
 .grid_scroll {
-    overflow: auto;
-    height:100px;
+    overflow: auto; 
+    height: 100px;
 }
 .lbrun {
     animation: move 20s infinite;

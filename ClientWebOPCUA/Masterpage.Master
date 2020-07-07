@@ -88,6 +88,7 @@
                     <li runat="server" id="Browse"><a href="/Browse.aspx"><i class="fas fa-project-diagram"></i>Browse</a></li>
                     <li runat="server" id="Rdwr"><a href="/Read_Write.aspx"><i class="fas fa-search"></i>Read/Write</a></li>
                     <li runat="server" id="Subcribe"><a href="/Subcription.aspx"><i class="fas fa-folder-plus"></i>Subscript</a></li>
+                    <li runat="server" id="Scada"><a href="/MyScada.aspx"><i class="fas fa-industry"></i>MyScada</a></li>
                     <li><a href="#"><i class="fas fa-bookmark"></i>About</a></li>
                     <li runat="server" id="Disconnect"><a href="#" onserverclick="DisConnect" runat="server"><i class="fas fa-sign-out-alt"></i>DisConnect</a></li>
                 </ul>

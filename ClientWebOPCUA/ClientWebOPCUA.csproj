@@ -18,8 +18,8 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -45,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\evilb\OneDrive\Documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="AspNet.ScriptManager.bootstrap, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.ScriptManager.bootstrap.4.5.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
       <Private>True</Private>
@@ -107,6 +111,27 @@
     </Reference>
     <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -189,6 +214,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
     <Content Include="Browse.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -202,14 +231,46 @@
     <Content Include="Content\styleBrowse.css" />
     <Content Include="Content\styleRead_Write.css" />
     <Content Include="Content\styleMonitor.css" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="FusionChartsExportHandler\FCExporter.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Img\90curve1.png" />
+    <Content Include="Img\90curve2.png" />
+    <Content Include="Img\90curve3.png" />
+    <Content Include="Img\90curve4.png" />
+    <Content Include="Img\buttonpower_red_off.png" />
+    <Content Include="Img\buttonpower_red_on.png" />
+    <Content Include="Img\Flangewithboltsonbottom.png" />
+    <Content Include="Img\flower1.png" />
+    <Content Include="Img\flower2.png" />
+    <Content Include="Img\gate.png" />
+    <Content Include="Img\gray_rec.png" />
+    <Content Include="Img\green_rec.png" />
+    <Content Include="Img\Handvalve.png" />
+    <Content Include="Img\Handvalve_On.png" />
+    <Content Include="Img\Levelsensor.png" />
+    <Content Include="Img\Leveltransmitter.png" />
+    <Content Include="Img\light_green_off.png" />
+    <Content Include="Img\light_green_on.png" />
+    <Content Include="Img\light_red_off.png" />
+    <Content Include="Img\light_red_on.png" />
     <Content Include="Img\LogoAuto.png" />
     <Content Include="Img\Logobktrans.png" />
+    <Content Include="Img\Pump.png" />
+    <Content Include="Img\Pump_On.png" />
+    <Content Include="Img\red_rec.png" />
+    <Content Include="Img\refresh.png" />
+    <Content Include="Img\Shorthorizontalpipe.png" />
+    <Content Include="Img\Shortverticalpipe.png" />
+    <Content Include="Img\Shortverticalpipe_blue.png" />
+    <Content Include="Img\Tee3.png" />
+    <Content Include="Img\yellow_rec.png" />
     <Content Include="Masterpage.Master" />
-    <Content Include="OPCUA.ConfigFile.xml" />
+    <Content Include="MyScada.aspx" />
+    <Content Include="OPCUA.ConfigFile.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -242,7 +303,45 @@
     <Content Include="Connect.aspx" />
     <Content Include="Scripts\jquery.signalR-2.4.1.js" />
     <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
+    <Content Include="Content\styleScada.css" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tabcontain.css" />
+    <Content Include="Test.aspx" />
     <Content Include="xtreeview.js" />
+    <Content Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet2.xsc">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSet2.xss">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -376,9 +475,15 @@
       <DependentUpon>Browse.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomTreeView.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="EndpointDesc.cs" />
     <Compile Include="FusionChartsExportHandler\FCExporter.aspx.cs">
@@ -395,6 +500,13 @@
     <Compile Include="Masterpage.Master.designer.cs">
       <DependentUpon>Masterpage.Master</DependentUpon>
     </Compile>
+    <Compile Include="MyScada.aspx.cs">
+      <DependentUpon>MyScada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyScada.aspx.designer.cs">
+      <DependentUpon>MyScada.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PageUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Read_Write.aspx.cs">
@@ -404,6 +516,7 @@
     <Compile Include="Read_Write.aspx.designer.cs">
       <DependentUpon>Read_Write.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Subcription.aspx.cs">
       <DependentUpon>Subcription.aspx</DependentUpon>
@@ -411,6 +524,13 @@
     </Compile>
     <Compile Include="Subcription.aspx.designer.cs">
       <DependentUpon>Subcription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="UAClientHelperAPI.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
@@ -429,7 +549,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <EmbeddedResource Include="ReportFile\ReportMonitor.rdlc" />
+    <EmbeddedResource Include="ReportFile\ReportScada.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -459,12 +580,12 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\OPC_UA_Client_1500\UA_Client_1500\OpcUaClient\Opc.Ua.Client.csproj">
-      <Project>{91dadc6c-ac5d-444e-acba-4c4f9f646735}</Project>
+    <ProjectReference Include="..\OpcUaClient\Opc.Ua.Client.csproj">
+      <Project>{b197b56d-2085-4660-a218-da37357216bd}</Project>
       <Name>Opc.Ua.Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\OPC_UA_Client_1500\UA_Client_1500\OpcUaCore\Opc.Ua.Core\Opc.Ua.Core.csproj">
-      <Project>{944abdf0-f2bf-4397-8e5f-d98afbcdbb60}</Project>
+    <ProjectReference Include="..\OpcUaCore\Opc.Ua.Core\Opc.Ua.Core.csproj">
+      <Project>{165804c4-938e-4850-b50c-513e3d60e9ae}</Project>
       <Name>Opc.Ua.Core</Name>
     </ProjectReference>
   </ItemGroup>
@@ -484,7 +605,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49858</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49858/</IISUrl>
+          <IISUrl>http://localhost:41287/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

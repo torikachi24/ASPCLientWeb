@@ -32,7 +32,6 @@ namespace ClientWebOPCUA
             try
             {
                 values = Connect.myClientHelperAPI.ReadValues(nodeIdStrings);
-                System.Diagnostics.Debug.WriteLine(values.ToString());
                 read.Text = values.ElementAt<String>(0);
                 ClientScript.RegisterStartupScript(this.GetType(), "Success", "messtimer('success','Read Successful')", true);
             }

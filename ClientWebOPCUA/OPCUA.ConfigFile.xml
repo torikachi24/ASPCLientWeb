@@ -90,7 +90,7 @@
 
     <!-- Specifies whether the complete certificate chain should be sent for CA signed certificates. -->
     <SendCertificateChain>false</SendCertificateChain>
-
+    <AutoAcceptUntrustedCertificates>true</AutoAcceptUntrustedCertificates>
     <!-- Where the User issuer certificates are stored -->
     <UserIssuerCertificates>
       <StoreType>Directory</StoreType>

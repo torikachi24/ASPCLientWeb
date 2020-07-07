@@ -1,0 +1,13 @@
+﻿.tabcontain {
+    width: 1200px;
+    height: 1000px;
+}
+
+    .tabcontain .tab {
+        width: 1200px;
+        height: 1000px;
+    }
+
+.Tab1 {
+    height: 100px;
+}

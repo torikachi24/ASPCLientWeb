@@ -90,10 +90,12 @@ namespace ClientWebOPCUA
             Control rdwr = this.Page.Master.FindControl("list").FindControl("Rdwr");
             Control subcribe = this.Page.Master.FindControl("list").FindControl("Subcribe");
             Control disconnect = this.Page.Master.FindControl("list").FindControl("Disconnect");
+            Control scada = this.Page.Master.FindControl("list").FindControl("Scada");
             browse.Visible = false;
             rdwr.Visible = false;
             subcribe.Visible = false;
             disconnect.Visible = false;
+            scada.Visible = false;
         }
 
         protected void GetEnpoints_Click(object sender, EventArgs e)
@@ -257,11 +259,13 @@ namespace ClientWebOPCUA
             Control rdwr = this.Page.Master.FindControl("list").FindControl("Rdwr");
             Control subcribe = this.Page.Master.FindControl("list").FindControl("Subcribe");
             Control disconnect = this.Page.Master.FindControl("list").FindControl("Disconnect");
+            Control scada = this.Page.Master.FindControl("list").FindControl("Scada");
 
             browse.Visible = true;
             rdwr.Visible = true;
             subcribe.Visible = true;
             disconnect.Visible = true;
+            scada.Visible = true;
         }
 
         private void ResetUI()
