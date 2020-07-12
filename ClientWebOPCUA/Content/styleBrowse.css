@@ -14,7 +14,6 @@
     font-size: 50px;
     text-align: center;
     margin-top:2vh;
-    margin-bottom: 8vh;
     color:#4690c4;
   }
 .config label{
@@ -46,6 +45,7 @@
 .gridview {
     position: absolute;
     left: 117vh;
+    top:10px;
     overflow-y: scroll;
     overflow-x: scroll;
     width: 62vh;

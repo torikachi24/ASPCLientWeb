@@ -16,18 +16,39 @@ namespace ClientWebOPCUA
         private Subscription mySubscription;
         private MonitoredItem myMonitoredItem;
 
-        private string item1 = "ns=3;s=\"block\".\"Pump1\".\"Run\"",
-                       item2 = "ns=3;s=\"block\".\"Tank1\".\"Level\"",
-                       item3 = "ns=3;s=\"block\".\"Tank1\".\"Status\"",
-                       item4 = "ns=3;s=\"block\".\"Tank1\".\"Run\"",
-                       item5 = "ns=3;s=\"block\".\"Gate1\".\"Status\"",
-                       item6 = "ns=3;s=\"block\".\"Pump2\".\"Run\"",
-                       item7 = "ns=3;s=\"block\".\"Tank2\".\"Level\"",
-                       item8 = "ns=3;s=\"block\".\"Tank2\".\"Status\"",
-                       item9 = "ns=3;s=\"block\".\"Tank2\".\"Run\"",
-                       item10 = "ns=3;s=\"block\".\"Gate2\".\"Status\"",
-            item11 = "ns=3;s=\"block\".\"StatusLed\"",
-            item12 = "ns=3;s=\"block\".\"FaultLed\"";
+        private string item1 = "ns=2;s=Pump_1.Start_Button",
+            item2 = "ns=2;s=Pump_1.Stop_Button",
+            item3 = "ns=2;s=Pump_1.Status",
+            item6 = "ns=2;s=Tank_1.Status",
+            item7 = "ns=2;s=Tank_1.Sensor_Level",
+            item8 = "ns=2;s=Tank_1.Full_Level",
+            item9 = "ns=2;s=Tank_1.Empty_Level",
+            item10 = "ns=2;s=Door_1.Open_Button",
+            item11 = "ns=2;s=Door_1.Close_Button",
+            item12 = "ns=2;s=Door_1.Stop_Button",
+            item13 = "ns=2;s=Door_1.Status",
+            item14 = "ns=2;s=Pump_2.Start_Button",
+            item15 = "ns=2;s=Pump_2.Stop_Button",
+            item16 = "ns=2;s=Pump_2.Status",
+            item19 = "ns=2;s=Tank_2.Status",
+            item20 = "ns=2;s=Tank_2.Sensor_Level",
+            item21 = "ns=2;s=Tank_2.Full_Level",
+            item22 = "ns=2;s=Tank_2.Empty_Level",
+            item23 = "ns=2;s=Door_2.Open_Button",
+            item24 = "ns=2;s=Door_2.Close_Button",
+            item25 = "ns=2;s=Door_2.Stop_Button",
+            item26 = "ns=2;s=Door_2.Status",
+            item27 = "ns=2;s=System_Emergency",
+            item28 = "ns=2;s=System_Reset",
+            item29 = "ns=2;s=System_ManualAuto",
+            item30 = "ns=2;s=System_Status",
+            item31 = "ns=2;s=System_Fault",
+            item32 = "ns=2;s=Tank_1.Open_Valve",
+            item33 = "ns=2;s=Tank_1.Close_Valve",
+            item34 = "ns=2;s=Tank_1.Status_Valve",
+            item35 = "ns=2;s=Tank_2.Open_Valve",
+            item36 = "ns=2;s=Tank_2.Close_Valve",
+            item37 = "ns=2;s=Tank_2.Status_Valve";
 
         protected void Disconnect_MyButtonClicked(object sender, EventArgs e)
         {
@@ -71,18 +92,18 @@ namespace ClientWebOPCUA
                     {
                         mySubscription = Connect.myClientHelperAPI.Subscribe(1000);
                     }
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item1, item1, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item2, item2, 1);
                     myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item3, item3, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item4, item4, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item5, item5, 1);
                     myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item6, item6, 1);
                     myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item7, item7, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item8, item8, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item9, item9, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item10, item10, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item11, item11, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item12, item12, 1);
+                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item13, item13, 1);
+                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item16, item16, 1);
+                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item19, item19, 1);
+                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item20, item20, 1);
+                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item26, item26, 1);
+                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item30, item30, 1);
+                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item31, item31, 1);
+                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item34, item34, 1);
+                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item37, item37, 1);
 
                     Connect.myClientHelperAPI.ItemChangedNotification += new MonitoredItemNotificationEventHandler(Notification_MonitoredItem);
                 }
@@ -147,7 +168,7 @@ namespace ClientWebOPCUA
         {
             SqlCommand cmd2 = con.CreateCommand();
             cmd2.CommandType = CommandType.Text;
-            cmd2.CommandText = "select value from scada where nodeid ='" + item2.ToString() + "'";
+            cmd2.CommandText = "select value from scada where nodeid ='" + item7.ToString() + "'";
             cmd2.Connection = con;
             SqlDataReader rd = cmd2.ExecuteReader();
             while (rd.Read())
@@ -155,7 +176,7 @@ namespace ClientWebOPCUA
                 ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "update1(" + rd[0].ToString() + ")", true);
              }
             rd.Close();
-            cmd2.CommandText = "select value from scada where nodeid ='" + item7.ToString() + "'";
+            cmd2.CommandText = "select value from scada where nodeid ='" + item20.ToString() + "'";
             cmd2.Connection = con;
             SqlDataReader rd1 = cmd2.ExecuteReader();
             while (rd1.Read())
@@ -172,7 +193,7 @@ namespace ClientWebOPCUA
             int index = 13;
             if (index >= 0 && index < data.Count)
             {
-                if (data[10] == "True")
+                if (data[8] == "True")
                 {
                     Image41.ImageUrl = "/Img/light_green_on.png";
                 }
@@ -180,7 +201,7 @@ namespace ClientWebOPCUA
                 {
                     Image41.ImageUrl = "/Img/light_green_off.png";
                 }
-                if (data[11] == "True")
+                if (data[9] == "True")
                 {
                     Image42.ImageUrl = "/Img/light_red_on.png";
                 }
@@ -213,7 +234,7 @@ namespace ClientWebOPCUA
             {
                 if (data != null)
                 {
-                    if (data[9] == "True")
+                    if (data[7] == "True")
                     {
                         Image36.ImageUrl = "/Img/light_green_on.png";
                     }
@@ -233,7 +254,7 @@ namespace ClientWebOPCUA
             {
                 if (data != null)
                 {
-                    if (data[4] == "True")
+                    if (data[3] == "True")
                     {
                         Image35.ImageUrl = "/Img/light_green_on.png";
                     }
@@ -255,11 +276,11 @@ namespace ClientWebOPCUA
                 {
                     lv_tank1.Text = "Level : " + data[1];
 
-                    if (data[2] == "0")
+                    if (data[1] == "0")
                     {
                         sta_tank1.Text = "Status : Emty";
                     }
-                    else if (data[2] == "1")
+                    else if (data[1] == "1")
                     {
                         sta_tank1.Text = "Status : Normal";
                     }
@@ -268,7 +289,7 @@ namespace ClientWebOPCUA
                         sta_tank1.Text = "Status : Full";
                     }
 
-                    if (data[3] == "True")
+                    if (data[10] == "True")
                     {
                         Image23.ImageUrl = "/Img/Handvalve_On.png";
                     }
@@ -290,11 +311,11 @@ namespace ClientWebOPCUA
                 {
                     lv_tank2.Text = "Level : " + data[6];
 
-                    if (data[7] == "0")
+                    if (data[5] == "0")
                     {
                         sta_tank2.Text = "Status : Emty";
                     }
-                    else if (data[7] == "1")
+                    else if (data[5] == "1")
                     {
                         sta_tank2.Text = "Status : Normal";
                     }
@@ -303,7 +324,7 @@ namespace ClientWebOPCUA
                         sta_tank2.Text = "Status : Full";
                     }
 
-                    if (data[8] == "True")
+                    if (data[11] == "True")
                     {
                         Image24.ImageUrl = "/Img/Handvalve_On.png";
                     }
@@ -345,7 +366,7 @@ namespace ClientWebOPCUA
             {
                 if (data != null)
                 {
-                    if (data[5] == "True")
+                    if (data[4] == "True")
                     {
                         Image12.ImageUrl = "/Img/Pump_On.png";
                         Image37.ImageUrl = "/Img/light_green_on.png";
@@ -393,7 +414,7 @@ namespace ClientWebOPCUA
         {
             values = new List<string>();
             nodeIdStrings = new List<string>();
-            nodeIdStrings.Add("ns=3;s=\"block\".\"Pump1\".\"Start\"");
+            nodeIdStrings.Add(item1);
             values.Add("True");
             try
             {
@@ -421,7 +442,7 @@ namespace ClientWebOPCUA
         {
             values = new List<string>();
             nodeIdStrings = new List<string>();
-            nodeIdStrings.Add("ns=3;s=\"block\".\"Tank1\".\"Start\"");
+            nodeIdStrings.Add(item32);
             values.Add("True");
             try
             {
@@ -449,7 +470,7 @@ namespace ClientWebOPCUA
         {
             values = new List<string>();
             nodeIdStrings = new List<string>();
-            nodeIdStrings.Add("ns=3;s=\"block\".\"Tank1\".\"Stop\"");
+            nodeIdStrings.Add(item33);
             values.Add("True");
             try
             {
@@ -477,7 +498,7 @@ namespace ClientWebOPCUA
         {
             values = new List<string>();
             nodeIdStrings = new List<string>();
-            nodeIdStrings.Add("ns=3;s=\"block\".\"Tank2\".\"Start\"");
+            nodeIdStrings.Add(item35);
             values.Add("True");
             try
             {
@@ -505,7 +526,7 @@ namespace ClientWebOPCUA
         {
             values = new List<string>();
             nodeIdStrings = new List<string>();
-            nodeIdStrings.Add("ns=3;s=\"block\".\"Tank2\".\"Stop\"");
+            nodeIdStrings.Add(item36);
             values.Add("True");
             try
             {
@@ -534,7 +555,7 @@ namespace ClientWebOPCUA
             values = new List<string>();
             nodeIdStrings = new List<string>();
             values.Add("True");
-            nodeIdStrings.Add("ns=3;s=\"block\".\"Gate1\".\"Open\"");
+            nodeIdStrings.Add(item10);
             try
             {
                 Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);
@@ -551,7 +572,7 @@ namespace ClientWebOPCUA
             values = new List<string>();
             nodeIdStrings = new List<string>();
             values.Add("True");
-            nodeIdStrings.Add("ns=3;s=\"block\".\"Gate1\".\"Stop\"");
+            nodeIdStrings.Add(item12);
             try
             {
                 Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);
@@ -568,7 +589,7 @@ namespace ClientWebOPCUA
             values = new List<string>();
             nodeIdStrings = new List<string>();
             values.Add("True");
-            nodeIdStrings.Add("ns=3;s=\"block\".\"Gate1\".\"Close\"");
+            nodeIdStrings.Add(item11);
             try
             {
                 Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);
@@ -585,7 +606,7 @@ namespace ClientWebOPCUA
             values = new List<string>();
             nodeIdStrings = new List<string>();
             values.Add("True");
-            nodeIdStrings.Add("ns=3;s=\"block\".\"Gate2\".\"Open\"");
+            nodeIdStrings.Add(item23);
             try
             {
                 Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);
@@ -602,7 +623,7 @@ namespace ClientWebOPCUA
             values = new List<string>();
             nodeIdStrings = new List<string>();
             values.Add("True");
-            nodeIdStrings.Add("ns=3;s=\"block\".\"Gate2\".\"Stop\"");
+            nodeIdStrings.Add(item25);
             try
             {
                 Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);
@@ -619,7 +640,7 @@ namespace ClientWebOPCUA
             values = new List<string>();
             nodeIdStrings = new List<string>();
             values.Add("True");
-            nodeIdStrings.Add("ns=3;s=\"block\".\"Gate2\".\"Close\"");
+            nodeIdStrings.Add(item24);
             try
             {
                 Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);

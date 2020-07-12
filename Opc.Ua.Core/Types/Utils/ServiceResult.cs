@@ -23,6 +23,7 @@ namespace Opc.Ua
     /// A class that combines the status code and diagnostic info structures.
     /// </summary>
     [DataContract(Namespace = Namespaces.OpcUaXsd)]
+    [Serializable]
     public class ServiceResult
     {
         #region Constructors

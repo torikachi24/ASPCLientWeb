@@ -341,97 +341,14 @@
             }, 1000);
         });
 
-//        FusionCharts.ready(function(){
-//			var chartObj = new FusionCharts({
-//    type: 'cylinder',
-//    dataFormat: 'json',
-//    renderAt: 'cylinder-chart-1',
-//    width: '200',
-//    height: '200',
-//    dataSource: {
-//        "chart": {
-//            "theme": "fusion",
-//            "caption": "Diesel Level in Generator",
-//            "subcaption": "Bakersfield Central",
-//            "lowerLimit": "0",
-//            "upperLimit": "120",
-//            "lowerLimitDisplay": "Empty",
-//            "upperLimitDisplay": "Full",
-//            "numberSuffix": " ltrs",
-//            "showValue": "1",
-//            "chartBottomMargin": "45",
-//            "showValue": "0"
-//        },
-//        "value": "110",
-//        "annotations": {
-//            "origw": "400",
-//            "origh": "190",
-//            "autoscale": "1",
-//            "groups": [{
-//                "id": "range",
-//                "items": [{
-//                    "id": "rangeBg",
-//                    "type": "rectangle",
-//                    "x": "$canvasCenterX-45",
-//                    "y": "$chartEndY-30",
-//                    "tox": "$canvasCenterX +45",
-//                    "toy": "$chartEndY-75",
-//                    "fillcolor": "#6caa03"
-//                }, {
-//                    "id": "rangeText",
-//                    "type": "Text",
-//                    "fontSize": "11",
-//                    "fillcolor": "#333333",
-//                    "text": "80 ltrs",
-//                    "x": "$chartCenterX-45",
-//                    "y": "$chartEndY-50"
-//                }]
-//            }]
-//        }
-
-//    },
-//    "events": {
-//        "rendered": function(evtObj, argObj) {
-//            var fuelVolume = 110;
-//            evtObj.sender.chartInterval = setInterval(function() {
-//                (fuelVolume < 10) ? (fuelVolume = 80) : "";
-//                var consVolume = fuelVolume - (Math.floor(Math.random() * 3));
-//                evtObj.sender.feedData && evtObj.sender.feedData("&value=" + consVolume);
-//                fuelVolume = consVolume;
-//            }, 1000);
-//        },
-//        //Using real time update event to update the annotation
-//        //showing available volume of Diesel
-//        "realTimeUpdateComplete": function(evt, arg) {
-//            var annotations = evt.sender.annotations,
-//                dataVal = evt.sender.getData(),
-//                colorVal = (dataVal >= 70) ? "#6caa03" : ((dataVal <= 35) ? "#e44b02" : "#f8bd1b");
-//            //Updating value
-//            annotations && annotations.update('rangeText', {
-//                "text": dataVal + " ltrs"
-//            });
-//            //Changing background color as per value
-//            annotations && annotations.update('rangeBg', {
-//                "fillcolor": colorVal
-//            });
-
-//        },
-//        "disposed": function(evt, arg) {
-//            clearInterval(evt.sender.chartInterval);
-//        }
-//    }
-//}
-//);
-//			chartObj.render();
-//		});
        FusionCharts.ready(function () {
             var chartObj = new FusionCharts({
                 type: 'cylinder',
                 dataFormat: 'json',
-                id:'tank1',
+                id:'tankchart1',
                 renderAt: 'chart-container-3',
                 width: '200',
-                height: '200',
+                height: '250',
                 dataSource: {
                     chart: {
                         caption :'Tank1',
@@ -440,12 +357,16 @@
                         cylFillHoverAlpha: "85",
                         theme: "fusion",
                         lowerLimit: "0",
-                        upperLimit: "120",
+                        upperLimit: "1000",
                         lowerLimitDisplay: "Empty",
                         upperLimitDisplay: "Full",
                         numberSuffix: " ltrs",
                         showValue: "1",
                         chartBottomMargin: "20",
+                         refreshInterval:'1',
+                        bgColor: "#0f2733",
+                        valueFontColor: "#76a683",
+                         captionFontColor:"#06c6bc"
                     },
                     value: 110,
                     annotations: {
@@ -454,8 +375,8 @@
                         autoscale: "1",
                     }
                 }}).render();
-                            var myVar = setInterval(function () {
-                FusionCharts.items["tank1"].feedData("&value=" + Math.random()*100);
+                            var myVar1 = setInterval(function () {
+                FusionCharts.items["tankchart1"].feedData("&value=" + data1);
             }, 1000);
         });
 
@@ -463,10 +384,10 @@
             var chartObj = new FusionCharts({
                 type: 'cylinder',
                 dataFormat: 'json',
-                id:'tank2',
+                id:'tankchart2',
                 renderAt: 'chart-container-4',
                 width: '200',
-                height: '200',
+                height: '250',
                 dataSource: {
                     chart: {
                         caption :'Tank2',
@@ -475,12 +396,16 @@
                         cylFillHoverAlpha: "85",
                         theme: "fusion",
                         lowerLimit: "0",
-                        upperLimit: "120",
+                        upperLimit: "1000",
                         lowerLimitDisplay: "Empty",
                         upperLimitDisplay: "Full",
                         numberSuffix: " ltrs",
                         showValue: "1",
                         chartBottomMargin: "20",
+                         refreshInterval:'1',
+                        bgColor: "#0f2733",
+                        valueFontColor: "#76a683",
+                         captionFontColor:"#06c6bc"
                     },
                     value: 110,
                     annotations: {
@@ -490,7 +415,7 @@
                     }
                 }}).render();
                             var myVar = setInterval(function () {
-                FusionCharts.items["tank2"].feedData("&value=" + Math.random()*100);
+                FusionCharts.items["tankchart2"].feedData("&value=" + data2);
                 //console.log(data2);
             }, 1000);
         });

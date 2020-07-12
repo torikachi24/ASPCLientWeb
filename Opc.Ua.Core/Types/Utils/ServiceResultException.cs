@@ -21,6 +21,7 @@ namespace Opc.Ua
     /// An exception thrown when a UA defined error occurs.
     /// </summary>
     [DataContractAttribute]
+    [Serializable]
     public class ServiceResultException : Exception
     {
         #region Constructors

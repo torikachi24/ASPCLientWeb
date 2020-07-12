@@ -8,6 +8,7 @@ using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI;
 using System.Xml;
 
 namespace Siemens.UAClientHelper
@@ -116,7 +117,6 @@ namespace Siemens.UAClientHelper
             {
                 //handle Exception here
                 throw e;
-               
             }
         }
 
