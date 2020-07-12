@@ -14,6 +14,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="/Content/styleMonitor.css" type="text/css" />
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+
     <script src="Scripts/jquery-3.5.1.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
     <%--<script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
@@ -27,12 +30,12 @@
                 <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
             </Triggers>
             <ContentTemplate>
-                <asp:Timer ID="Timer1" runat="server" Interval="100" OnTick="Timer1_Tick" Enabled="false"></asp:Timer>
+                <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick" Enabled="false"></asp:Timer>
             </ContentTemplate>
         </asp:UpdatePanel>
 
         <ajaxToolkit:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" CssClass="tabcontain" ScrollBars="Auto" OnActiveTabChanged="TabContainer1_ActiveTabChanged1" AutoPostBack="true">
-            <ajaxToolkit:TabPanel runat="server" HeaderText="TableView" ID="TabPanel1" Height="580" BackColor="#D2FFFFFF" >
+            <ajaxToolkit:TabPanel runat="server" HeaderText="TableView" ID="TabPanel1" Height="560" BackColor="#D2FFFFFF">
                 <ContentTemplate>
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                         <ContentTemplate>
@@ -45,19 +48,33 @@
             </ajaxToolkit:TabPanel>
             <ajaxToolkit:TabPanel runat="server" HeaderText="GraphView" ID="TabPanel2" Height="580" ScrollBars="Horizontal">
                 <ContentTemplate>
-                    <asp:Label ID="Label1" runat="server" Text="Export Image :"></asp:Label>
-                    <asp:Button ID="Button1" runat="server" Text="Click me!" />
                     <div class="chartWrapper">
-                        <canvas id="myChart"></canvas>
+                        <div class="chart-wrapper">
+                            <div id="chart-container"></div>
+                            <div class="buttonwrapper pt-2">
+                                <div class="form-elements">
+                                    <div class="input-wrapper">
+                                        <select id="format">
+                                            <option value="png">png</option>
+                                            <option value="jpg">jpg</option>
+                                            <option value="pdf">pdf</option>
+                                            <option value="csv">csv</option>
+                                        </select>&nbsp;&nbsp;
+      <span class="label-shift-label">Select a format</span>&nbsp;
+                                    </div>
+                                    <button id="export" class="btn-1">Export Chart</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </ContentTemplate>
             </ajaxToolkit:TabPanel>
-            <ajaxToolkit:TabPanel runat="server" HeaderText="Report" ID="TabPanel3" Height="580" ScrollBars="Horizontal">
+            <ajaxToolkit:TabPanel runat="server" HeaderText="Report" ID="TabPanel3" Height="560" ScrollBars="Horizontal">
                 <ContentTemplate>
                     <asp:Button ID="Button3" runat="server" Text="Load" OnClick="Load_Report_Click" />
                     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                         <ContentTemplate>
-                            <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="1150px" ProcessingMode="Local"></rsweb:ReportViewer>
+                            <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="1100px" ProcessingMode="Local"></rsweb:ReportViewer>
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </ContentTemplate>
@@ -67,77 +84,86 @@
 
     <script type="text/javascript">
 
-        var canvas = document.getElementById('myChart');
-        var data = {
-            labels: ["", "", "", "", "", "", "", "", "", ""],
-            datasets: [
-                {
-                    label: "Data Monitored",
-                    fill: true,
-                    fillColor: "rgba(75,192,192,0.2)",
-                    lineTension: 0.0,
-                    backgroundColor: "rgba(75,192,192,0.4)",
-                    borderColor: "rgba(75,192,192,1)",
-                    borderCapStyle: 'butt',
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    borderJoinStyle: 'miter',
-                    pointBorderColor: "rgba(75,192,192,1)",
-                    pointBackgroundColor: "#fff",
-                    pointBorderWidth: 1,
-                    pointHoverRadius: 5,
-                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                    pointHoverBorderColor: "rgba(220,220,220,1)",
-                    pointHoverBorderWidth: 2,
-                    pointRadius: 5,
-                    pointHitRadius: 10,
-                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                    steppedLine: true,
-                }
-            ]
-        };
+        var data;
+        function update(a) {
+            data = a;
+        }
+        FusionCharts.ready(function () {
+            var revenueChart = new FusionCharts({
+                id: "stockRealTimeChart",
+                type: 'realtimeline',
+                renderAt: 'chart-container',
+                width: '1000',
+                height: '500',
+                dataFormat: 'json',
+                dataSource: {
+                    "chart": {
+                        "caption": "Graph Monitor Node ID",
+                        "xAxisName": "Time",
+                        "yAxisName": "Value",
+                        "refreshinterval": "2",
+                        "yaxisminvalue": "0",
+                        "yaxismaxvalue": "100",
+                        "numdisplaysets": "20",
+                        "labeldisplay": "rotate",
+                        "showRealTimeValue": "1",
+                        "theme": "fusion",
+                        "exportenabled": "1",
+                        "exportshowmenuitem": "0"
+                    },
+                    "categories": [{
+                        "category": [{
+                            "label": "Day Start"
+                        }]
+                    }],
+                    "dataset": [{
+                        "data": [{
+                            "value": "35.27"
+                        }]
+                    }]
+                },
+                "events": {
+                    "initialized": function (e) {
+                        function addLeadingZero(num) {
+                            return (num <= 9) ? ("0" + num) : num;
+                        }
 
-        function adddata(num) {
-            var now = new Date();
-            myLineChart.data.labels.push(now.format("hh:mm mm/dd/yyyy"));
-            var length = myLineChart.data.datasets.length;
+                        function updateData() {
+                            // Get reference to the chart using its ID
+                            var chartRef = FusionCharts("stockRealTimeChart"),
+                                // We need to create a querystring format incremental update, containing
+                                // label in hh:mm:ss format
+                                // and a value (random).
+                                currDate = new Date(),
+                                label = addLeadingZero(currDate.getHours()) + ":" +
+                                    addLeadingZero(currDate.getMinutes()) + ":" +
+                                    addLeadingZero(currDate.getSeconds()),
+                                // Get random number between 35.25 & 35.75 - rounded to 2 decimal places
+                                randomValue = data,
+                                // Build Data String in format &label=...&value=...
+                                strData = "&label=" + label +
+                                    "&value=" +
+                                    randomValue;
+                            // Feed it to chart.
+                            chartRef.feedData(strData);
+                        }
 
-            //myLineChart.data.labels.splice(0, 1);
-            //myLineChart.data.datasets[0].data.splice(0, 1);
-            //myLineChart.data.datasets[0].data.push(num);
-            myLineChart.data.datasets.forEach((dataset) => {
-                dataset.data.push(num);
-            });
+                        var myVar = setInterval(function () {
+                            updateData();
+                            console.log(data);
+                        }, 2000);
 
-            myLineChart.update();
-        };
-
-        var option = {
-            //responsive: true,
-            //maintainAspectRatio: false,
-            showLines: true,
-            scales: {
-                yAxes: [{
-                    display: true,
-                    ticks: {
-                        beginAtZero: true,
                     }
-                }],
-            },
-        };
-        var myLineChart = Chart.Line(canvas, {
-            data: data,
-            options: option
-        });
-        new Chart(canvas).Line(data, {
-            onAnimationComplete: function () {
-                var sourceCanvas = this.chart.ctx.canvas;
-                var copyWidth = this.scale.xScalePaddingLeft - 5;
-                var copyHeight = this.scale.endPoint + 5;
-                var targetCtx = document.getElementById("myChart").getContext("2d");
-                targetCtx.canvas.width = copyWidth;
-                targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth, copyHeight, 0, 0, copyWidth, copyHeight);
+                }
+            })
+                .render();
+            function export_chart() {
+                var format = document.getElementById("format").value;
+                revenueChart.exportChart({
+                    exportFormat: format
+                });
             }
+            document.getElementById("export").addEventListener("click", export_chart);
         });
     </script>
 </asp:Content>

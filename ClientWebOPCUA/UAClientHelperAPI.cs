@@ -1,4 +1,5 @@
-﻿using Opc.Ua;
+﻿using ClientWebOPCUA;
+using Opc.Ua;
 using Opc.Ua.Client;
 using System;
 using System.Collections.Generic;
@@ -115,6 +116,7 @@ namespace Siemens.UAClientHelper
             {
                 //handle Exception here
                 throw e;
+               
             }
         }
 

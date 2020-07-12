@@ -13,9 +13,11 @@ namespace ClientWebOPCUA
         private SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True;TransparentNetworkIPResolution=False");
 
         private Session m_session;
+        protected string MyProperty { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            TabContainer1.Width = 1100;
             m_session = Connect.mySession;
 
             (this.Master as Masterpage).MyButtonClicked += new EventHandler(Disconnect_MyButtonClicked);
@@ -127,7 +129,7 @@ namespace ClientWebOPCUA
                 cmd1.CommandType = CommandType.Text;
                 cmd1.CommandText = "update subcription set Value='" + notification.Value.WrappedValue.ToString() + "',Time='" + notification.Value.ServerTimestamp.ToLocalTime() + "' where nodeid='" + monitoredItem.DisplayName.ToString() + "'";
                 cmd1.ExecuteNonQuery();
-                ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "adddata(" + notification.Value.WrappedValue.ToString() + ")", true);
+                // ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "adddata(" + notification.Value.WrappedValue.ToString() + ")", true);
             }
             else
             {
@@ -135,7 +137,7 @@ namespace ClientWebOPCUA
                 cmd2.CommandType = CommandType.Text;
                 cmd2.CommandText = "insert into subcription values('" + monitoredItem.DisplayName.ToString() + "','" + notification.Value.WrappedValue.ToString() + "','" + notification.Value.ServerTimestamp.ToLocalTime() + "')";
                 cmd2.ExecuteNonQuery();
-                ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "adddata(" + notification.Value.WrappedValue.ToString() + ")", true);
+                //ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "adddata(" + notification.Value.WrappedValue.ToString() + ")", true);
             }
         }
 
@@ -163,7 +165,6 @@ namespace ClientWebOPCUA
                     {
                         ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "adddata(" + Connect.MonNotificate.Value.WrappedValue.ToString() + ")", true);
                         ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "fitChart()", true);
-
                         Connect.Oldvalue = Connect.MonNotificate.Value.WrappedValue.ToString();
                     }
                     else
@@ -180,6 +181,19 @@ namespace ClientWebOPCUA
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from subcription";
             cmd.ExecuteNonQuery();
+            //////////
+            SqlCommand cmd2 = con.CreateCommand();
+            cmd2.CommandType = CommandType.Text;
+            cmd2.CommandText = "select max(value) from subcription";
+            cmd2.Connection = con;
+            SqlDataReader rd = cmd2.ExecuteReader();
+            while (rd.Read())
+            {
+                ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "update(" + rd[0].ToString() + ")", true);
+                System.Diagnostics.Debug.WriteLine(rd[0].ToString());
+            }
+            rd.Close();
+            //////////////
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
@@ -193,7 +207,6 @@ namespace ClientWebOPCUA
             Connect.myClientHelperAPI.RemoveSubscription(Connect.mySubscription);
             Connect.mySubscription = null;
             Connect.itemCount = 0;
-
         }
 
         protected void Load_Report_Click(object sender, EventArgs e)

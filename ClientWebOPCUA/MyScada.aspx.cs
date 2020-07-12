@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Web.UI.WebControls;
+using System.Web.UI;
 
 namespace ClientWebOPCUA
 {
@@ -26,19 +26,34 @@ namespace ClientWebOPCUA
                        item8 = "ns=3;s=\"block\".\"Tank2\".\"Status\"",
                        item9 = "ns=3;s=\"block\".\"Tank2\".\"Run\"",
                        item10 = "ns=3;s=\"block\".\"Gate2\".\"Status\"",
-            item11= "ns=3;s=\"block\".\"StatusLed\"",
-            item12="ns=3;s=\"block\".\"FaultLed\"";
+            item11 = "ns=3;s=\"block\".\"StatusLed\"",
+            item12 = "ns=3;s=\"block\".\"FaultLed\"";
+
+        protected void Disconnect_MyButtonClicked(object sender, EventArgs e)
+        {
+            if (Connect.mySession != null && Connect.mySession.Connected == true)
+            {
+                Connect connect = new Connect();
+                connect.Disconnect();
+            }
+            else
+            {
+                return;
+            }
+        }
 
         private SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True;TransparentNetworkIPResolution=False");
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            (this.Master as Masterpage).MyButtonClicked += new EventHandler(Disconnect_MyButtonClicked);
+
             if (con.State == ConnectionState.Open)
             {
                 con.Close();
             }
             con.Open();
-           
+            TabContainer1.Width = 1270;
             if (!IsPostBack)
             {
                 SqlConnection.ClearAllPools();
@@ -70,7 +85,6 @@ namespace ClientWebOPCUA
                     myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item12, item12, 1);
 
                     Connect.myClientHelperAPI.ItemChangedNotification += new MonitoredItemNotificationEventHandler(Notification_MonitoredItem);
-                    
                 }
                 catch (Exception ex)
                 {
@@ -119,7 +133,6 @@ namespace ClientWebOPCUA
 
         protected void Timer1_Tick(object sender, EventArgs e)
         {
-           
             Pump1();
             Pump2();
             Tank1_Read();
@@ -127,29 +140,56 @@ namespace ClientWebOPCUA
             Gate1();
             Gage2();
             Home();
+            Gauge();
+        }
+
+        private void Gauge()
+        {
+            SqlCommand cmd2 = con.CreateCommand();
+            cmd2.CommandType = CommandType.Text;
+            cmd2.CommandText = "select value from scada where nodeid ='" + item2.ToString() + "'";
+            cmd2.Connection = con;
+            SqlDataReader rd = cmd2.ExecuteReader();
+            while (rd.Read())
+            {
+                ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "update1(" + rd[0].ToString() + ")", true);
+             }
+            rd.Close();
+            cmd2.CommandText = "select value from scada where nodeid ='" + item7.ToString() + "'";
+            cmd2.Connection = con;
+            SqlDataReader rd1 = cmd2.ExecuteReader();
+            while (rd1.Read())
+            {
+                ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS2", "update2(" + rd1[0].ToString() + ")", true);
+               
+            }
+            rd1.Close();
         }
 
         private void Home()
         {
             List<string> data = ReadData();
-            if (data[10] == "True")
+            int index = 13;
+            if (index >= 0 && index < data.Count)
             {
-                Image41.ImageUrl = "/Img/light_green_on.png";
+                if (data[10] == "True")
+                {
+                    Image41.ImageUrl = "/Img/light_green_on.png";
+                }
+                else
+                {
+                    Image41.ImageUrl = "/Img/light_green_off.png";
+                }
+                if (data[11] == "True")
+                {
+                    Image42.ImageUrl = "/Img/light_red_on.png";
+                }
+                else
+                {
+                    Image42.ImageUrl = "/Img/light_red_off.png";
+                }
             }
-            else
-            {
-                Image41.ImageUrl = "/Img/light_green_off.png";
-            }
-            if (data[11] == "True")
-            {
-                Image42.ImageUrl = "/Img/light_red_on.png";
-            }
-            else
-            {
-                Image42.ImageUrl = "/Img/light_red_off.png";
-            }
-        
-    }
+        }
 
         private List<string> ReadData()
         {
@@ -167,140 +207,156 @@ namespace ClientWebOPCUA
 
         private void Gage2()
         {
-
             List<string> data = ReadData();
-            if (data != null)
+            int index = 13;
+            if (index >= 0 && index < data.Count)
             {
-                if (data[9] == "True")
+                if (data != null)
                 {
-                    Image36.ImageUrl = "/Img/light_green_on.png";
-                }
-                else
-                {
-                    Image36.ImageUrl = "/Img/light_green_off.png";
+                    if (data[9] == "True")
+                    {
+                        Image36.ImageUrl = "/Img/light_green_on.png";
+                    }
+                    else
+                    {
+                        Image36.ImageUrl = "/Img/light_green_off.png";
+                    }
                 }
             }
-
-              
         }
 
         private void Gate1()
         {
             List<string> data = ReadData();
-            if (data != null)
+            int index = 13;
+            if (index >= 0 && index < data.Count)
             {
-                if (data[4] == "True")
+                if (data != null)
                 {
-                    Image35.ImageUrl = "/Img/light_green_on.png";
-                }
-                else
-                {
-                    Image35.ImageUrl = "/Img/light_green_off.png";
+                    if (data[4] == "True")
+                    {
+                        Image35.ImageUrl = "/Img/light_green_on.png";
+                    }
+                    else
+                    {
+                        Image35.ImageUrl = "/Img/light_green_off.png";
+                    }
                 }
             }
-           
         }
 
         private void Tank1_Read()
         {
             List<string> data = ReadData();
-            if (data != null)
+            int index = 13;
+            if (index >= 0 && index < data.Count)
             {
-                lv_tank1.Text = "Level : " + data[1];
+                if (data != null)
+                {
+                    lv_tank1.Text = "Level : " + data[1];
 
-                if (data[2] == "0")
-                {
-                    sta_tank1.Text = "Status : Emty";
-                }
-                else if (data[2] == "1")
-                {
-                    sta_tank1.Text = "Status : Normal";
-                }
-                else
-                {
-                    sta_tank1.Text = "Status : Full";
-                }
+                    if (data[2] == "0")
+                    {
+                        sta_tank1.Text = "Status : Emty";
+                    }
+                    else if (data[2] == "1")
+                    {
+                        sta_tank1.Text = "Status : Normal";
+                    }
+                    else
+                    {
+                        sta_tank1.Text = "Status : Full";
+                    }
 
-                if (data[3] == "True")
-                {
-                    Image23.ImageUrl = "/Img/Handvalve_On.png";
-                }
-                else
-                {
-                    Image23.ImageUrl = "/Img/Handvalve.png";
+                    if (data[3] == "True")
+                    {
+                        Image23.ImageUrl = "/Img/Handvalve_On.png";
+                    }
+                    else
+                    {
+                        Image23.ImageUrl = "/Img/Handvalve.png";
+                    }
                 }
             }
-           
         }
 
         private void Tank2_Read()
         {
             List<string> data = ReadData();
-            if (data != null)
+            int index = 13;
+            if (index >= 0 && index < data.Count)
             {
-                lv_tank2.Text = "Level : " + data[6];
+                if (data != null)
+                {
+                    lv_tank2.Text = "Level : " + data[6];
 
-                if (data[7] == "0")
-                {
-                    sta_tank2.Text = "Status : Emty";
-                }
-                else if (data[7] == "1")
-                {
-                    sta_tank2.Text = "Status : Normal";
-                }
-                else
-                {
-                    sta_tank2.Text = "Status : Full";
-                }
+                    if (data[7] == "0")
+                    {
+                        sta_tank2.Text = "Status : Emty";
+                    }
+                    else if (data[7] == "1")
+                    {
+                        sta_tank2.Text = "Status : Normal";
+                    }
+                    else
+                    {
+                        sta_tank2.Text = "Status : Full";
+                    }
 
-                if (data[8] == "True")
-                {
-                    Image24.ImageUrl = "/Img/Handvalve_On.png";
-                }
-                else
-                {
-                    Image24.ImageUrl = "/Img/Handvalve.png";
+                    if (data[8] == "True")
+                    {
+                        Image24.ImageUrl = "/Img/Handvalve_On.png";
+                    }
+                    else
+                    {
+                        Image24.ImageUrl = "/Img/Handvalve.png";
+                    }
                 }
             }
-               
         }
 
         private void Pump1()
         {
             List<string> data = ReadData();
-            if (data != null)
+            int index = 13;
+            if (index >= 0 && index < data.Count)
             {
-                if (data[0] == "True")
+                if (data != null)
                 {
-                    Image11.ImageUrl = "/Img/Pump_On.png";
-                    Image38.ImageUrl = "/Img/light_green_on.png";
-                }
-                else
-                {
-                    Image11.ImageUrl = "/Img/Pump.png";
-                    Image38.ImageUrl = "/Img/light_green_off.png";
+                    if (data[0] == "True")
+                    {
+                        Image11.ImageUrl = "/Img/Pump_On.png";
+                        Image38.ImageUrl = "/Img/light_green_on.png";
+                    }
+                    else
+                    {
+                        Image11.ImageUrl = "/Img/Pump.png";
+                        Image38.ImageUrl = "/Img/light_green_off.png";
+                    }
                 }
             }
-            
         }
 
         private void Pump2()
         {
             List<string> data = ReadData();
-            if (data != null)
+            int index = 13;
+            if (index >= 0 && index < data.Count)
             {
-                if (data[5] == "True")
+                if (data != null)
                 {
-                    Image12.ImageUrl = "/Img/Pump_On.png";
-                    Image37.ImageUrl = "/Img/light_green_on.png";
-                }
-                else
-                {
-                    Image12.ImageUrl = "/Img/Pump.png";
-                    Image37.ImageUrl = "/Img/light_green_off.png";
+                    if (data[5] == "True")
+                    {
+                        Image12.ImageUrl = "/Img/Pump_On.png";
+                        Image37.ImageUrl = "/Img/light_green_on.png";
+                    }
+                    else
+                    {
+                        Image12.ImageUrl = "/Img/Pump.png";
+                        Image37.ImageUrl = "/Img/light_green_off.png";
+                    }
                 }
             }
-          
         }
 
         protected void Load_Report_Click(object sender, EventArgs e)

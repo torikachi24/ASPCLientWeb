@@ -35,12 +35,13 @@
                     <asp:Image ID="Image13" CssClass="verticalpipe2" runat="server" ImageUrl="~/Img/Shortverticalpipe.png" />
                     <asp:Image ID="Image14" CssClass="verticalpipe3" runat="server" ImageUrl="~/Img/Shortverticalpipe.png" />
 
-                    <div id="chart-container1"></div>
+                    <div id="chart-container-3">FusionCharts will render here</div>
+
                     <asp:Image ID="Image19" CssClass="curve7" runat="server" ImageUrl="~/Img/90curve2.png" />
                     <asp:Image ID="Image15" CssClass="curve5" runat="server" ImageUrl="~/Img/90curve1.png" />
                     <asp:Image ID="Image27" CssClass="sensor1" runat="server" ImageUrl="~/Img/Levelsensor.png" />
 
-                    <div id="chart-container2"></div>
+                    <div id="chart-container-4"></div>
 
                     <asp:Image ID="Image20" CssClass="curve8" runat="server" ImageUrl="~/Img/90curve2.png" />
                     <asp:Image ID="Image16" CssClass="curve6" runat="server" ImageUrl="~/Img/90curve1.png" />
@@ -94,8 +95,8 @@
                     <div>
                         <asp:UpdatePanel ID="UpdatePanel5" runat="server">
                             <ContentTemplate>
-                                <asp:Label ID="lv_tank1" ForeColor="White" Width="100px" CssClass="lv_tank1" runat="server" ></asp:Label>
-                                <asp:Label ID="sta_tank1" ForeColor="White" Width="100px" CssClass="sta_tank1" runat="server" ></asp:Label>
+                                <asp:Label ID="lv_tank1" ForeColor="White" Width="100px" CssClass="lv_tank1" runat="server"></asp:Label>
+                                <asp:Label ID="sta_tank1" ForeColor="White" Width="100px" CssClass="sta_tank1" runat="server"></asp:Label>
                                 <h3 id="lb_valve1">Valve 1</h3>
                                 <asp:Button ID="Button11" CssClass="ope_val1" OnClick="ope_val1_Click" runat="server" Text="Open" />
                                 <asp:Button ID="Button12" CssClass="clo_val1" OnClick="clo_val1_Click" runat="server" Text="Close" />
@@ -124,11 +125,9 @@
                             <asp:Button ID="Button7" OnClick="open_gate1_Click" runat="server" Text="Open" CssClass="ope_gate1" />
                             <asp:Button ID="Button8" runat="server" OnClick="stop_gate1_Click" Text="Stop" CssClass="sto_gate1" />
                             <asp:Button ID="Button10" runat="server" OnClick="close_gate1_Click" Text="Close" CssClass="clo_gate1" />
-                             <asp:Image ID="Image35" runat="server" CssClass="led_gate1" ImageUrl="/Img/light_green_off.png" />
+                            <asp:Image ID="Image35" runat="server" CssClass="led_gate1" ImageUrl="/Img/light_green_off.png" />
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                   
-                   
                 </div>
                 <div id="g2" class="divgate2">
                     <h3>Gate 2</h3>
@@ -140,7 +139,6 @@
                             <asp:Image ID="Image36" runat="server" CssClass="led_gate2" ImageUrl="/Img/light_green_off.png" />
                         </ContentTemplate>
                     </asp:UpdatePanel>
-                    
                 </div>
 
                 <div id="Intro" class="intro">
@@ -159,11 +157,10 @@
                     <asp:Label ID="Label3" CssClass="label_main" runat="server" Text="Status"></asp:Label>
                     <asp:Label ID="Label4" CssClass="fault_main" runat="server" Text="Fault"></asp:Label>
 
-
                     <asp:UpdatePanel ID="UpdatePanel10" runat="server">
                         <ContentTemplate>
-                            <asp:Image ID="Image41" runat="server" CssClass="led_status" ImageUrl="/Img/light_green_off.png"/>
-                            <asp:Image ID="Image42" runat="server" CssClass="led_fault" ImageUrl="/Img/light_red_off.png"/>
+                            <asp:Image ID="Image41" runat="server" CssClass="led_status" ImageUrl="/Img/light_green_off.png" />
+                            <asp:Image ID="Image42" runat="server" CssClass="led_fault" ImageUrl="/Img/light_red_off.png" />
                             <asp:ImageButton ID="ImageButton1" CssClass="emer" runat="server" ImageUrl="/Img/buttonpower_red_off.png" />
                             <asp:ImageButton ID="ImageButton2" CssClass="reset" runat="server" ImageUrl="/Img/refresh.png" />
                         </ContentTemplate>
@@ -176,21 +173,25 @@
                     </Triggers>
                     <ContentTemplate>
                         <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick"></asp:Timer>
-                        <
+                    
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </ContentTemplate>
         </ajaxToolkit:TabPanel>
-        <ajaxToolkit:TabPanel runat="server" HeaderText="GraphTank" ID="TabPanel2">
-        </ajaxToolkit:TabPanel>
-        <ajaxToolkit:TabPanel runat="server" HeaderText="Report" ID="TabPanel3">
+        <ajaxToolkit:TabPanel runat="server" HeaderText="GraphTank" ID="TabPanel2" Height="700">
             <ContentTemplate>
-                 <asp:Button ID="Button15" runat="server" Text="Button" OnClick="Load_Report_Click" />
-                    <asp:UpdatePanel ID="UpdatePanel11" runat="server">
-                        <ContentTemplate>
-                            <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="1150px"></rsweb:ReportViewer>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
+                <div id="chart-container-1" ></div>
+                <div id="chart-container-2"></div>
+            </ContentTemplate>
+        </ajaxToolkit:TabPanel>
+        <ajaxToolkit:TabPanel runat="server" HeaderText="Report" ID="TabPanel3" Height="700">
+            <ContentTemplate>
+                <asp:Button ID="Button15" runat="server" Text="Load Report" OnClick="Load_Report_Click" />
+                <asp:UpdatePanel ID="UpdatePanel11" runat="server">
+                    <ContentTemplate>
+                        <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="1100px"></rsweb:ReportViewer>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </ContentTemplate>
         </ajaxToolkit:TabPanel>
     </ajaxToolkit:TabContainer>
@@ -198,169 +199,302 @@
     <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
     <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
     <script type="text/javascript">
+        var data1, data2, upper = 800, lower = 100;
+        function update1(a) {
+            data1 = a;
+            //upper = b;
+            //lower = c;
+        };
+        function update2(a) {
+            data2 = a;
+            //upper = b;
+            //lower = c;
+        };
+
         FusionCharts.ready(function () {
+            var myChart = new FusionCharts({
+                type: "angulargauge",
+                renderAt: "chart-container-1",
+                id: "myGauge",
+                width: "500",
+                height: "400",
+                dataFormat: "json",
+                dataSource: {
+                    chart: {
+                        caption: "TANK LEVEL 1",
+                        lowerlimit: "0",
+                        upperlimit: "1000",
+                        showvalue: "1",
+                        numbersuffix: " Litre",
+                        theme: "fusion",
+                        showtooltip: "0",
+                        majorTMNumber: "10",
+                        minorTMNumber: "3",
+                    },
+                    colorrange: {
+                        color: [
+                            {
+                                minvalue: 0,
+                                maxvalue: lower,
+                                code: "#F2726F"
+                            },
+                            {
+                                minvalue: lower,
+                                maxvalue: lower + 100,
+                                code: "#FFC533"
+                            },
+                            {
+                                minvalue: lower + 100,
+                                maxvalue: upper - 100,
+                                code: "#62B58F"
+                            },
+                            {
+                                minvalue: upper - 100,
+                                maxvalue: upper,
+                                code: "#FFC533"
+                            },
+                            {
+                                minvalue: upper,
+                                maxvalue: 1000,
+                                code: "#F2726F"
+                            },
+
+                        ]
+                    },
+                    dials: {
+                        dial: [
+                            {
+                                id: "Tank1Level",
+                                value: "0"
+                            }
+                        ]
+                    }
+                }
+            }).render();
+            var myVar = setInterval(function () {
+                FusionCharts.items["myGauge"].feedData("&Tank1Level=" + data1);
+            }, 100);
+        });
+        FusionCharts.ready(function () {
+            var myChart = new FusionCharts({
+                type: "angulargauge",
+                renderAt: "chart-container-2",
+                id: "myGauge2",
+                width: "500",
+                height: "400",
+                dataFormat: "json",
+                dataSource: {
+                    chart: {
+                        caption: "TANK LEVEL 2",
+                        lowerlimit: "0",
+                        upperlimit: "1000",
+                        showvalue: "1",
+                        numbersuffix: " Litre",
+                        theme: "fusion",
+                        showtooltip: "0",
+                        majorTMNumber: "10",
+                        minorTMNumber: "3",
+                    },
+                    colorrange: {
+                        color: [
+                            {
+                                minvalue: 0,
+                                maxvalue: lower,
+                                code: "#F2726F"
+                            },
+                            {
+                                minvalue: lower,
+                                maxvalue: lower + 100,
+                                code: "#FFC533"
+                            },
+                            {
+                                minvalue: lower + 100,
+                                maxvalue: upper - 100,
+                                code: "#62B58F"
+                            },
+                            {
+                                minvalue: upper - 100,
+                                maxvalue: upper,
+                                code: "#FFC533"
+                            },
+                            {
+                                minvalue: upper,
+                                maxvalue: 1000,
+                                code: "#F2726F"
+                            },
+
+                        ]
+                    },
+                    dials: {
+                        dial: [
+                            {
+                                id: "Tank2Level",
+                                value: "0"
+                            }
+                        ]
+                    }
+                }
+            }).render();
+            var myVar = setInterval(function () {
+                FusionCharts.items["myGauge2"].feedData("&Tank2Level=" + data2);
+                //console.log(data2);
+            }, 1000);
+        });
+
+//        FusionCharts.ready(function(){
+//			var chartObj = new FusionCharts({
+//    type: 'cylinder',
+//    dataFormat: 'json',
+//    renderAt: 'cylinder-chart-1',
+//    width: '200',
+//    height: '200',
+//    dataSource: {
+//        "chart": {
+//            "theme": "fusion",
+//            "caption": "Diesel Level in Generator",
+//            "subcaption": "Bakersfield Central",
+//            "lowerLimit": "0",
+//            "upperLimit": "120",
+//            "lowerLimitDisplay": "Empty",
+//            "upperLimitDisplay": "Full",
+//            "numberSuffix": " ltrs",
+//            "showValue": "1",
+//            "chartBottomMargin": "45",
+//            "showValue": "0"
+//        },
+//        "value": "110",
+//        "annotations": {
+//            "origw": "400",
+//            "origh": "190",
+//            "autoscale": "1",
+//            "groups": [{
+//                "id": "range",
+//                "items": [{
+//                    "id": "rangeBg",
+//                    "type": "rectangle",
+//                    "x": "$canvasCenterX-45",
+//                    "y": "$chartEndY-30",
+//                    "tox": "$canvasCenterX +45",
+//                    "toy": "$chartEndY-75",
+//                    "fillcolor": "#6caa03"
+//                }, {
+//                    "id": "rangeText",
+//                    "type": "Text",
+//                    "fontSize": "11",
+//                    "fillcolor": "#333333",
+//                    "text": "80 ltrs",
+//                    "x": "$chartCenterX-45",
+//                    "y": "$chartEndY-50"
+//                }]
+//            }]
+//        }
+
+//    },
+//    "events": {
+//        "rendered": function(evtObj, argObj) {
+//            var fuelVolume = 110;
+//            evtObj.sender.chartInterval = setInterval(function() {
+//                (fuelVolume < 10) ? (fuelVolume = 80) : "";
+//                var consVolume = fuelVolume - (Math.floor(Math.random() * 3));
+//                evtObj.sender.feedData && evtObj.sender.feedData("&value=" + consVolume);
+//                fuelVolume = consVolume;
+//            }, 1000);
+//        },
+//        //Using real time update event to update the annotation
+//        //showing available volume of Diesel
+//        "realTimeUpdateComplete": function(evt, arg) {
+//            var annotations = evt.sender.annotations,
+//                dataVal = evt.sender.getData(),
+//                colorVal = (dataVal >= 70) ? "#6caa03" : ((dataVal <= 35) ? "#e44b02" : "#f8bd1b");
+//            //Updating value
+//            annotations && annotations.update('rangeText', {
+//                "text": dataVal + " ltrs"
+//            });
+//            //Changing background color as per value
+//            annotations && annotations.update('rangeBg', {
+//                "fillcolor": colorVal
+//            });
+
+//        },
+//        "disposed": function(evt, arg) {
+//            clearInterval(evt.sender.chartInterval);
+//        }
+//    }
+//}
+//);
+//			chartObj.render();
+//		});
+       FusionCharts.ready(function () {
             var chartObj = new FusionCharts({
                 type: 'cylinder',
                 dataFormat: 'json',
-                renderAt: 'chart-container1',
+                id:'tank1',
+                renderAt: 'chart-container-3',
                 width: '200',
                 height: '200',
                 dataSource: {
-                    "chart": {
-                        "cylFillHoverColor": "#0099fd",
-                        "cylFillHoverAlpha": "85",
-                        "theme": "fusion",
-                        "lowerLimit": "0",
-                        "upperLimit": "120",
-                        "lowerLimitDisplay": "Empty",
-                        "upperLimitDisplay": "Full",
-                        "numberSuffix": " ltrs",
-                        "showValue": "1",
-                        "chartBottomMargin": "20",
-                        "showValue": "0",
-                        "bgColor": "#0f2733"
+                    chart: {
+                        caption :'Tank1',
+                        animation:'true',
+                        cylFillHoverColor: "#0099fd",
+                        cylFillHoverAlpha: "85",
+                        theme: "fusion",
+                        lowerLimit: "0",
+                        upperLimit: "120",
+                        lowerLimitDisplay: "Empty",
+                        upperLimitDisplay: "Full",
+                        numberSuffix: " ltrs",
+                        showValue: "1",
+                        chartBottomMargin: "20",
                     },
-                    "value": "110",
-                    "annotations": {
-                        "origw": "400",
-                        "origh": "190",
-                        "autoscale": "1",
-                        "groups": [{
-                            "id": "range",
-                            "items": [{
-                                "id": "rangeBg",
-                                "type": "rectangle",
-                                "x": "$canvasCenterX-45",
-                                "y": "$chartEndY-30",
-                                "tox": "$canvasCenterX +45",
-                                "toy": "$chartEndY-75",
-                                "fillcolor": "#6caa03"
-                            }, {
-                                "id": "rangeText",
-                                "type": "Text",
-                                "fontSize": "11",
-                                "fillcolor": "#333333",
-                                "text": "80 ltrs",
-                                "x": "$chartCenterX-45",
-                                "y": "$chartEndY-50"
-                            }]
-                        }]
+                    value: 110,
+                    annotations: {
+                        origw: "400",
+                        origh: "190",
+                        autoscale: "1",
                     }
-
-                },
-                "events": {
-                    "rendered": function (evtObj, argObj) {
-                        var fuelVolume = 110;
-                        evtObj.sender.chartInterval = setInterval(function () {
-                            (fuelVolume < 10) ? (fuelVolume = 80) : "";
-                            var consVolume = fuelVolume - (Math.floor(Math.random() * 3));
-                            evtObj.sender.feedData && evtObj.sender.feedData("&value=" + consVolume);
-                            fuelVolume = consVolume;
-                        }, 1000);
-                    },
-                    //Using real time update event to update the annotation
-                    //showing available volume of Diesel
-                    "realTimeUpdateComplete": function (evt, arg) {
-                        var annotations = evt.sender.annotations,
-                            dataVal = evt.sender.getData(),
-                            colorVal = (dataVal >= 70) ? "#6caa03" : ((dataVal <= 35) ? "#e44b02" : "#f8bd1b");
-                        //Updating value
-                        annotations && annotations.update('rangeText', {
-                            "text": dataVal + " ltrs"
-                        });
-                        //Changing background color as per value
-                        annotations && annotations.update('rangeBg', {
-                            "fillcolor": colorVal
-                        });
-
-                    },
-                    "disposed": function (evt, arg) {
-                        clearInterval(evt.sender.chartInterval);
-                    }
-                }
-            }
-            );
-            chartObj.render();
+                }}).render();
+                            var myVar = setInterval(function () {
+                FusionCharts.items["tank1"].feedData("&value=" + Math.random()*100);
+            }, 1000);
         });
 
-        FusionCharts.ready(function () {
+       FusionCharts.ready(function () {
             var chartObj = new FusionCharts({
                 type: 'cylinder',
                 dataFormat: 'json',
-                renderAt: 'chart-container2',
+                id:'tank2',
+                renderAt: 'chart-container-4',
                 width: '200',
                 height: '200',
                 dataSource: {
-                    "chart": {
-                        "cylFillHoverColor": "#0099fd",
-                        "cylFillHoverAlpha": "85",
-                        "theme": "fusion",
-                        "lowerLimit": "0",
-                        "upperLimit": "120",
-                        "lowerLimitDisplay": "Empty",
-                        "upperLimitDisplay": "Full",
-                        "numberSuffix": " ltrs",
-                        "showValue": "1",
-                        "chartBottomMargin": "20",
-                        "showValue": "0",
-                        "bgColor": "#0f2733"
+                    chart: {
+                        caption :'Tank2',
+                        animation:'true',
+                        cylFillHoverColor: "#0099fd",
+                        cylFillHoverAlpha: "85",
+                        theme: "fusion",
+                        lowerLimit: "0",
+                        upperLimit: "120",
+                        lowerLimitDisplay: "Empty",
+                        upperLimitDisplay: "Full",
+                        numberSuffix: " ltrs",
+                        showValue: "1",
+                        chartBottomMargin: "20",
                     },
-                    "value": "110",
-                    "annotations": {
-                        "origw": "400",
-                        "origh": "190",
-                        "autoscale": "1",
-                        "groups": [{
-                            "id": "range",
-                            "items": [{
-                                "id": "rangeBg",
-                                "type": "rectangle",
-                                "x": "$canvasCenterX-45",
-                                "y": "$chartEndY-30",
-                                "tox": "$canvasCenterX +45",
-                                "toy": "$chartEndY-75",
-                                "fillcolor": "#6caa03"
-                            }, {
-                                "id": "rangeText",
-                                "type": "Text",
-                                "fontSize": "11",
-                                "fillcolor": "#333333",
-                                "text": "Loading",
-                                "x": "$chartCenterX-45",
-                                "y": "$chartEndY-50"
-                            }]
-                        }]
+                    value: 110,
+                    annotations: {
+                        origw: "400",
+                        origh: "190",
+                        autoscale: "1",
                     }
-
-                },
-                "events": {
-                    "rendered": function (evtObj, argObj) {
-                         evtObj.sender.feedData && evtObj.sender.feedData("&value=" + 10);
-                    },
-                
-                    //Using real time update event to update the annotation
-                    //showing available volume of Diesel
-                    "realTimeUpdateComplete": function (evt, arg) {
-                        var annotations = evt.sender.annotations,
-                            dataVal = evt.sender.getData(),
-                            colorVal = (dataVal >= 70) ? "#6caa03" : ((dataVal <= 35) ? "#e44b02" : "#f8bd1b");
-                        //Updating value
-                        annotations && annotations.update('rangeText', {
-                            "text": dataVal + " ltrs"
-                        });
-                        //Changing background color as per value
-                        annotations && annotations.update('rangeBg', {
-                            "fillcolor": colorVal
-                        });
-
-                    },
-                    "disposed": function (evt, arg) {
-                        clearInterval(evt.sender.chartInterval);
-                    }
-                }
-            }
-            );
-            chartObj.render();
+                }}).render();
+                            var myVar = setInterval(function () {
+                FusionCharts.items["tank2"].feedData("&value=" + Math.random()*100);
+                //console.log(data2);
+            }, 1000);
         });
+
+
     </script>
 </asp:Content>

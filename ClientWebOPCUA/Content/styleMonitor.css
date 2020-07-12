@@ -69,6 +69,84 @@ div.chartContainer {
     position: relative;
     height: 300px;
 }*/
-.tabcontain {
-    width: 1180px;
+.chart-wrapper {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.buttonwrapper {
+    text-align: center;
+}
+
+#format {
+    text-indent: 8px;
+    font-weight: 600;
+    height: 42px;
+    width: 135px;
+    letter-spacing: 0.2px;
+    line-height: 18px;
+    font-family: "Source Sans Pro";
+    border: 1px solid rgba(62, 57, 107, 0.13);
+    border-radius: 4px;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+    #format:focus {
+        outline: none;
+    }
+
+.btn-1 {
+    height: 40px;
+    width: 135px;
+    border: 1px solid #6957da;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    color: #6957da;
+    font-family: "Source Sans Pro";
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 16px;
+    box-shadow: none;
+    margin-left: -8px;
+}
+
+    .btn-1:hover {
+        background: linear-gradient(-270deg, #5b72de 0%, #745ff9 100%);
+        color: #fff;
+        border: 0;
+        outline: none;
+    }
+
+    .btn-1:focus {
+        box-shadow: inset 0 0px 0px rgba(49, 49, 49, 0.125), 0 0 0 0.2rem rgba(105, 87, 218, 0.5);
+        border: 1px solid #6957da;
+        outline: none;
+        text-decoration: none;
+    }
+
+.label-shift-label {
+    position: absolute;
+    transition: all 0.4s ease;
+    background: #fff;
+    top: -8px;
+    left: 15px;
+    color: #9f9fb9;
+    font-size: 13px;
+    letter-spacing: -0.1px;
+    line-height: 15px;
+}
+
+.form-elements {
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
 }
