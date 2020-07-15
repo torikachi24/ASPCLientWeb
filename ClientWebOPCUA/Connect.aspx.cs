@@ -197,7 +197,7 @@ namespace ClientWebOPCUA
                         myClientHelperAPI.Connect(mySelectedEndpoint, RadioButtonList1.Items.FindByValue("User/Password").Selected, userTextBox.Text, pwTextBox.Text).Wait();
                         //Extract the session object for further direct session interactions
                         mySession = myClientHelperAPI.Session;
-                      
+
                         SerName.Text = mySelectedEndpoint.Server.ApplicationName.ToString();
                         SerUri.Text = mySelectedEndpoint.Server.ApplicationUri.ToString();
                         Serc.Text = mySelectedEndpoint.SecurityLevel.ToString();
@@ -255,7 +255,7 @@ namespace ClientWebOPCUA
 
         private void ControlEnable()
         {
-        if (mySession.Endpoint.EndpointUrl == "opc.tcp://45.124.94.180:4841")
+            if (mySession.Endpoint.EndpointUrl == "opc.tcp://45.124.94.180:4841")
             {
                 Control browse = this.Page.Master.FindControl("list").FindControl("Browse");
                 Control rdwr = this.Page.Master.FindControl("list").FindControl("Rdwr");
@@ -271,7 +271,6 @@ namespace ClientWebOPCUA
             }
             else
             {
-
                 Control browse = this.Page.Master.FindControl("list").FindControl("Browse");
                 Control rdwr = this.Page.Master.FindControl("list").FindControl("Rdwr");
                 Control subcribe = this.Page.Master.FindControl("list").FindControl("Subcribe");
@@ -284,7 +283,6 @@ namespace ClientWebOPCUA
                 disconnect.Visible = true;
                 scada.Visible = false;
             }
-            
         }
 
         private void ResetUI()

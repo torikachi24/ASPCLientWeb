@@ -1,3 +1,7 @@
+E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\ClientWebOPCUA.csprojAssemblyReference.cache
+E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\RdlCompile.cache
+E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\RdlCompile.compiled
+E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\ClientWebOPCUA.csproj.CoreCompileInputs.cache
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\SqlServerTypes\x64\msvcr120.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\SqlServerTypes\x86\msvcr120.dll
@@ -54,6 +58,7 @@ E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\roslyn\vbc.exe.config
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\roslyn\vbc.rsp
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\roslyn\VBCSCompiler.exe
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\roslyn\VBCSCompiler.exe.config
+E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.Runtime.InteropServices.RuntimeInformation.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Microsoft.Win32.Primitives.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\netstandard.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.AppContext.dll
@@ -119,7 +124,6 @@ E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.Runtime.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.Runtime.Extensions.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.Runtime.Handles.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.Runtime.InteropServices.dll
-E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.Runtime.InteropServices.RuntimeInformation.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.Runtime.Numerics.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.Runtime.Serialization.Formatters.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.Runtime.Serialization.Json.dll
@@ -215,6 +219,7 @@ E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Microsoft.SqlServer.Types.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Microsoft.Web.Infrastructure.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Newtonsoft.Json.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Opc.Ua.Client.dll
+E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Opc.Ua.Configuration.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Opc.Ua.Core.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Owin.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.Buffers.dll
@@ -248,8 +253,6 @@ E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Microsoft.VisualStudio.OLE.Interop
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Microsoft.VisualStudio.TextManager.Interop.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Microsoft.MSXML.dll
-E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Opc.Ua.Client.pdb
-E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Opc.Ua.Core.pdb
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\BouncyCastle.Crypto.xml
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\FusionCharts.DataEngine.xml
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\FusionCharts.Visualization.xml
@@ -293,6 +296,9 @@ E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Microsoft.Owin.xml
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Microsoft.Owin.Host.SystemWeb.xml
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Microsoft.Owin.Security.xml
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Newtonsoft.Json.xml
+E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Opc.Ua.Client.pdb
+E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Opc.Ua.Configuration.pdb
+E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\Opc.Ua.Core.pdb
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.Buffers.xml
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.Collections.Immutable.xml
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\System.Diagnostics.DiagnosticSource.xml
@@ -372,10 +378,6 @@ E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\pt\Microsoft.ReportViewer.WinForms
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\ru\Microsoft.ReportViewer.WinForms.resources.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\ClientWebOPCUA.csprojAssemblyReference.cache
-E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\RdlCompile.cache
-E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\RdlCompile.compiled
-E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\ClientWebOPCUA.csproj.CoreCompileInputs.cache
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\ClientWebOPCUA.csproj.CopyComplete
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\ClientWebOPCUA.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\ClientWebOPCUA.pdb

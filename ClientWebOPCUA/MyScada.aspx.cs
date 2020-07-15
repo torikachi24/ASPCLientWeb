@@ -16,39 +16,39 @@ namespace ClientWebOPCUA
         private Subscription mySubscription;
         private MonitoredItem myMonitoredItem;
 
-        private string item1 = "ns=2;s=Pump_1.Start_Button",
-            item2 = "ns=2;s=Pump_1.Stop_Button",
-            item3 = "ns=2;s=Pump_1.Status",
-            item6 = "ns=2;s=Tank_1.Status",
-            item7 = "ns=2;s=Tank_1.Sensor_Level",
-            item8 = "ns=2;s=Tank_1.Full_Level",
-            item9 = "ns=2;s=Tank_1.Empty_Level",
-            item10 = "ns=2;s=Door_1.Open_Button",
-            item11 = "ns=2;s=Door_1.Close_Button",
-            item12 = "ns=2;s=Door_1.Stop_Button",
-            item13 = "ns=2;s=Door_1.Status",
-            item14 = "ns=2;s=Pump_2.Start_Button",
-            item15 = "ns=2;s=Pump_2.Stop_Button",
-            item16 = "ns=2;s=Pump_2.Status",
-            item19 = "ns=2;s=Tank_2.Status",
-            item20 = "ns=2;s=Tank_2.Sensor_Level",
-            item21 = "ns=2;s=Tank_2.Full_Level",
-            item22 = "ns=2;s=Tank_2.Empty_Level",
-            item23 = "ns=2;s=Door_2.Open_Button",
-            item24 = "ns=2;s=Door_2.Close_Button",
-            item25 = "ns=2;s=Door_2.Stop_Button",
-            item26 = "ns=2;s=Door_2.Status",
-            item27 = "ns=2;s=System_Emergency",
-            item28 = "ns=2;s=System_Reset",
-            item29 = "ns=2;s=System_ManualAuto",
-            item30 = "ns=2;s=System_Status",
-            item31 = "ns=2;s=System_Fault",
-            item32 = "ns=2;s=Tank_1.Open_Valve",
-            item33 = "ns=2;s=Tank_1.Close_Valve",
-            item34 = "ns=2;s=Tank_1.Status_Valve",
-            item35 = "ns=2;s=Tank_2.Open_Valve",
-            item36 = "ns=2;s=Tank_2.Close_Valve",
-            item37 = "ns=2;s=Tank_2.Status_Valve";
+        private string item1 = "ns=2;s=Pump_1.Start_Button";
+        private string item2 = "ns=2;s=Pump_1.Stop_Button";
+        private string item3 = "ns=2;s=Pump_1.Status";
+        private string item6 = "ns=2;s=Tank_1.Status_Tank";
+        private string item7 = "ns=2;s=Tank_1.Sensor_Level";
+        private string item8 = "ns=2;s=Tank_1.Full_Level";
+        private string item9 = "ns=2;s=Tank_1.Empty_Level";
+        private string item10 = "ns=2;s=Door_1.Open_Button";
+        private string item11 = "ns=2;s=Door_1.Close_Button";
+        private string item12 = "ns=2;s=Door_1.Stop_Button";
+        private string item13 = "ns=2;s=Door_1.Status";
+        private string item14 = "ns=2;s=Pump_2.Start_Button";
+        private string item15 = "ns=2;s=Pump_2.Stop_Button";
+        private string item16 = "ns=2;s=Pump_2.Status";
+        private string item19 = "ns=2;s=Tank_2.Status_Tank";
+        private string item20 = "ns=2;s=Tank_2.Sensor_Level";
+        private string item21 = "ns=2;s=Tank_2.Full_Level";
+        private string item22 = "ns=2;s=Tank_2.Empty_Level";
+        private string item23 = "ns=2;s=Door_2.Open_Button";
+        private string item24 = "ns=2;s=Door_2.Close_Button";
+        private string item25 = "ns=2;s=Door_2.Stop_Button";
+        private string item26 = "ns=2;s=Door_2.Status";
+        private string item27 = "ns=2;s=System_Emergency";
+        private string item28 = "ns=2;s=System_Reset";
+        private string item29 = "ns=2;s=System_Auto_Manual";
+        private string item30 = "ns=2;s=System_Status";
+        private string item31 = "ns=2;s=System_Fault";
+        private string item32 = "ns=2;s=Tank_1.Open_Valve";
+        private string item33 = "ns=2;s=Tank_1.Close_Valve";
+        private string item34 = "ns=2;s=Tank_1.Status_Valve";
+        private string item35 = "ns=2;s=Tank_2.Open_Valve";
+        private string item36 = "ns=2;s=Tank_2.Close_Valve";
+        private string item37 = "ns=2;s=Tank_2.Status_Valve";
 
         protected void Disconnect_MyButtonClicked(object sender, EventArgs e)
         {
@@ -84,33 +84,52 @@ namespace ClientWebOPCUA
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = "DBCC CHECKIDENT (scada, RESEED, 0)";
                 cmd.ExecuteNonQuery();
-                try
-                {
-                    //use different item names for correct assignment at the notificatino event
-                    Timer1.Enabled = true;
-                    if (mySubscription == null)
-                    {
-                        mySubscription = Connect.myClientHelperAPI.Subscribe(1000);
-                    }
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item3, item3, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item6, item6, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item7, item7, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item13, item13, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item16, item16, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item19, item19, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item20, item20, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item26, item26, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item30, item30, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item31, item31, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item34, item34, 1);
-                    myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item37, item37, 1);
+                MonitorItems();
+                Timer1.Enabled = true;
+            }
+        }
 
-                    Connect.myClientHelperAPI.ItemChangedNotification += new MonitoredItemNotificationEventHandler(Notification_MonitoredItem);
-                }
-                catch (Exception ex)
+        private void MonitorItems()
+        {
+            try
+            {
+
+                if (mySubscription == null)
                 {
-                    PageUtility.MessageBox(this, ex.ToString());
+                    mySubscription = Connect.myClientHelperAPI.Subscribe(1000);
                 }
+                int i = 0;
+              
+                myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item3, item3, 1);
+                i++;
+                myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item6, item6, 1);
+                i++;
+                myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item7, item7, 1);
+                i++;
+                myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item13, item13, 1);
+                i++;
+                myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item16, item16, 1);
+                i++;
+                myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item19, item19, 1);
+                i++;
+                myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item20, item20, 1);
+                i++;
+                myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item26, item26, 1);
+                i++;
+                myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item30, item30, 1);
+                i++;
+                myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item31, item31, 1);
+                i++;
+                myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item34, item34, 1);
+                i++;
+                myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item37, item37, 1);
+                i++;
+
+                Connect.myClientHelperAPI.ItemChangedNotification += new MonitoredItemNotificationEventHandler(Notification_MonitoredItem);
+            }
+            catch (Exception ex)
+            {
+                PageUtility.MessageBox(this, ex.ToString());
             }
         }
 
@@ -145,6 +164,7 @@ namespace ClientWebOPCUA
             }
             else
             {
+                System.Diagnostics.Debug.WriteLine(monitoredItem.DisplayName.ToString());
                 SqlCommand cmd2 = con.CreateCommand();
                 cmd2.CommandType = CommandType.Text;
                 cmd2.CommandText = "insert into scada values('" + monitoredItem.DisplayName.ToString() + "','" + notification.Value.WrappedValue.ToString() + "','" + notification.Value.ServerTimestamp.ToLocalTime() + "')";
@@ -174,7 +194,7 @@ namespace ClientWebOPCUA
             while (rd.Read())
             {
                 ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "update1(" + rd[0].ToString() + ")", true);
-             }
+            }
             rd.Close();
             cmd2.CommandText = "select value from scada where nodeid ='" + item20.ToString() + "'";
             cmd2.Connection = con;
@@ -182,7 +202,6 @@ namespace ClientWebOPCUA
             while (rd1.Read())
             {
                 ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS2", "update2(" + rd1[0].ToString() + ")", true);
-               
             }
             rd1.Close();
         }
@@ -190,8 +209,7 @@ namespace ClientWebOPCUA
         private void Home()
         {
             List<string> data = ReadData();
-            int index = 13;
-            if (index >= 0 && index < data.Count)
+            if (data.Count == 12)
             {
                 if (data[8] == "True")
                 {
@@ -214,23 +232,31 @@ namespace ClientWebOPCUA
 
         private List<string> ReadData()
         {
-            SqlDataAdapter da = new SqlDataAdapter("select value from scada", con);
-            DataSet ds = new DataSet();
-            da.Fill(ds, "authors");
+            List<String> columnData = new List<String>();
 
-            List<string> scada_data = new List<string>();
-            foreach (DataRow row in ds.Tables["authors"].Rows)
+            using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True;TransparentNetworkIPResolution=False"))
             {
-                scada_data.Add(row["value"].ToString());
+                connection.Open();
+                string query = "SELECT value FROM scada";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            columnData.Add(reader.GetString(0));
+                        }
+                        reader.Close();
+                    }
+                }
             }
-            return scada_data;
+            return columnData;
         }
 
         private void Gage2()
         {
             List<string> data = ReadData();
-            int index = 13;
-            if (index >= 0 && index < data.Count)
+            if (data.Count == 12)
             {
                 if (data != null)
                 {
@@ -249,8 +275,7 @@ namespace ClientWebOPCUA
         private void Gate1()
         {
             List<string> data = ReadData();
-            int index = 13;
-            if (index >= 0 && index < data.Count)
+            if (data.Count == 12)
             {
                 if (data != null)
                 {
@@ -269,8 +294,7 @@ namespace ClientWebOPCUA
         private void Tank1_Read()
         {
             List<string> data = ReadData();
-            int index = 13;
-            if (index >= 0 && index < data.Count)
+            if (data.Count == 12)
             {
                 if (data != null)
                 {
@@ -304,8 +328,7 @@ namespace ClientWebOPCUA
         private void Tank2_Read()
         {
             List<string> data = ReadData();
-            int index = 13;
-            if (index >= 0 && index < data.Count)
+            if (data.Count == 12)
             {
                 if (data != null)
                 {
@@ -339,8 +362,7 @@ namespace ClientWebOPCUA
         private void Pump1()
         {
             List<string> data = ReadData();
-            int index = 13;
-            if (index >= 0 && index < data.Count)
+            if (data.Count == 12)
             {
                 if (data != null)
                 {
@@ -356,13 +378,13 @@ namespace ClientWebOPCUA
                     }
                 }
             }
+             
         }
 
         private void Pump2()
         {
             List<string> data = ReadData();
-            int index = 13;
-            if (index >= 0 && index < data.Count)
+            if (data.Count == 12)
             {
                 if (data != null)
                 {
@@ -378,6 +400,7 @@ namespace ClientWebOPCUA
                     }
                 }
             }
+           
         }
 
         protected void Load_Report_Click(object sender, EventArgs e)
@@ -410,11 +433,12 @@ namespace ClientWebOPCUA
             }
         }
 
-        protected void sta_p1_Click(object sender, EventArgs e)
+        #region System
+        protected void Stop_Click(object sender, ImageClickEventArgs e)
         {
             values = new List<string>();
             nodeIdStrings = new List<string>();
-            nodeIdStrings.Add(item1);
+            nodeIdStrings.Add(item27);
             values.Add("True");
             try
             {
@@ -425,7 +449,6 @@ namespace ClientWebOPCUA
             {
                 PageUtility.MessageBox(this, ex.ToString());
             }
-            values = new List<string>();
             values.Add("False");
             try
             {
@@ -438,6 +461,35 @@ namespace ClientWebOPCUA
             }
         }
 
+        protected void Reset_Click(object sender, ImageClickEventArgs e)
+        {
+            values = new List<string>();
+            nodeIdStrings = new List<string>();
+            nodeIdStrings.Add(item28);
+            values.Add("True");
+            try
+            {
+                Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);
+                ClientScript.RegisterStartupScript(this.GetType(), "Alert", "messtimer('success','Write Successful')", true);
+            }
+            catch (Exception ex)
+            {
+                PageUtility.MessageBox(this, ex.ToString());
+            }
+            values.Add("False");
+            try
+            {
+                Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);
+                ClientScript.RegisterStartupScript(this.GetType(), "Alert", "messtimer('success','Write Successful')", true);
+            }
+            catch (Exception ex)
+            {
+                PageUtility.MessageBox(this, ex.ToString());
+            }
+        }
+        #endregion
+
+        #region Valve
         protected void ope_val1_Click(object sender, EventArgs e)
         {
             values = new List<string>();
@@ -549,6 +601,9 @@ namespace ClientWebOPCUA
                 PageUtility.MessageBox(this, ex.ToString());
             }
         }
+        #endregion
+
+        #region Gate
 
         protected void open_gate1_Click(object sender, EventArgs e)
         {
@@ -651,5 +706,65 @@ namespace ClientWebOPCUA
                 PageUtility.MessageBox(this, ex.ToString());
             }
         }
+        #endregion
+
+        #region Pump
+        protected void start_p1_Click(object sender, EventArgs e)
+        {
+            values = new List<string>();
+            nodeIdStrings = new List<string>();
+            nodeIdStrings.Add(item1);
+            values.Add("True");
+            try
+            {
+                Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);
+                ClientScript.RegisterStartupScript(this.GetType(), "Alert", "messtimer('success','Write Successful')", true);
+            }
+            catch (Exception ex)
+            {
+                PageUtility.MessageBox(this, ex.ToString());
+            }
+            values = new List<string>();
+            values.Add("False");
+            try
+            {
+                Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);
+                ClientScript.RegisterStartupScript(this.GetType(), "Alert", "messtimer('success','Write Successful')", true);
+            }
+            catch (Exception ex)
+            {
+                PageUtility.MessageBox(this, ex.ToString());
+            }
+        }
+
+        protected void stop_p1_Click(object sender, EventArgs e)
+        {
+            values = new List<string>();
+            nodeIdStrings = new List<string>();
+            nodeIdStrings.Add(item2);
+            values.Add("True");
+            try
+            {
+                Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);
+                ClientScript.RegisterStartupScript(this.GetType(), "Alert", "messtimer('success','Write Successful')", true);
+            }
+            catch (Exception ex)
+            {
+                PageUtility.MessageBox(this, ex.ToString());
+            }
+            values = new List<string>();
+            values.Add("False");
+            try
+            {
+                Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);
+                ClientScript.RegisterStartupScript(this.GetType(), "Alert", "messtimer('success','Write Successful')", true);
+            }
+            catch (Exception ex)
+            {
+                PageUtility.MessageBox(this, ex.ToString());
+            }
+        }
+        #endregion
+        
     }
 }

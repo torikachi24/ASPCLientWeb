@@ -30,7 +30,7 @@
                 <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
             </Triggers>
             <ContentTemplate>
-                <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick" Enabled="false"></asp:Timer>
+                <asp:Timer ID="Timer1" runat="server" Interval="100" OnTick="Timer1_Tick" Enabled="false"></asp:Timer>
             </ContentTemplate>
         </asp:UpdatePanel>
 
@@ -39,7 +39,7 @@
                 <ContentTemplate>
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                         <ContentTemplate>
-                            <asp:GridView ID="GridView1" runat="server" Width="1130px">
+                            <asp:GridView ID="GridView1" runat="server" Width="1150px">
                                 <RowStyle Width="50%" HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:GridView>
                         </ContentTemplate>

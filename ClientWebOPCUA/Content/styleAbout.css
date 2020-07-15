@@ -1,0 +1,18 @@
+﻿.LV{
+    text-align:center;
+    color:green;
+    font-size:large;
+}
+h2 {
+    text-align: center;
+    color: #35e673;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+#frame{
+    background-color:black;
+    height:700px;
+    width:1200px;
+    
+}

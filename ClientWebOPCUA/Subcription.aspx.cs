@@ -127,7 +127,7 @@ namespace ClientWebOPCUA
             {
                 SqlCommand cmd1 = con.CreateCommand();
                 cmd1.CommandType = CommandType.Text;
-                cmd1.CommandText = "update subcription set Value='" + notification.Value.WrappedValue.ToString() + "',Time='" + notification.Value.ServerTimestamp.ToLocalTime() + "' where nodeid='" + monitoredItem.DisplayName.ToString() + "'";
+                cmd1.CommandText = "update subcription set Value='" + notification.Value.WrappedValue.ToString() + "',Time='" + DateTime.Now.ToString()  + "' where nodeid='" + monitoredItem.DisplayName.ToString() + "'";
                 cmd1.ExecuteNonQuery();
                 // ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "adddata(" + notification.Value.WrappedValue.ToString() + ")", true);
             }
@@ -135,7 +135,7 @@ namespace ClientWebOPCUA
             {
                 SqlCommand cmd2 = con.CreateCommand();
                 cmd2.CommandType = CommandType.Text;
-                cmd2.CommandText = "insert into subcription values('" + monitoredItem.DisplayName.ToString() + "','" + notification.Value.WrappedValue.ToString() + "','" + notification.Value.ServerTimestamp.ToLocalTime() + "')";
+                cmd2.CommandText = "insert into subcription values('" + monitoredItem.DisplayName.ToString() + "','" + notification.Value.WrappedValue.ToString() + "','" + DateTime.Now.ToString() + "')";
                 cmd2.ExecuteNonQuery();
                 //ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "adddata(" + notification.Value.WrappedValue.ToString() + ")", true);
             }
@@ -190,7 +190,6 @@ namespace ClientWebOPCUA
             while (rd.Read())
             {
                 ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "update(" + rd[0].ToString() + ")", true);
-                System.Diagnostics.Debug.WriteLine(rd[0].ToString());
             }
             rd.Close();
             //////////////
@@ -206,7 +205,13 @@ namespace ClientWebOPCUA
             Connect.myMonitoredItem = Connect.myClientHelperAPI.RemoveMonitoredItem(Connect.mySubscription, Connect.myMonitoredItem);
             Connect.myClientHelperAPI.RemoveSubscription(Connect.mySubscription);
             Connect.mySubscription = null;
-            Connect.itemCount = 0;
+            //SubcriptionID.Text = "";
+            //SqlCommand cmd = con.CreateCommand();
+            //cmd.CommandType = CommandType.Text;
+            //cmd.CommandText = "DELETE FROM subcription ";
+            //cmd.ExecuteNonQuery();
+            //cmd.CommandText = "DBCC CHECKIDENT (subcription, RESEED, 0)";
+            //cmd.ExecuteNonQuery();
         }
 
         protected void Load_Report_Click(object sender, EventArgs e)

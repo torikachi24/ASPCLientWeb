@@ -107,8 +107,10 @@ namespace Siemens.UAClientHelper
             {
                 //Create a DiscoveryClient
                 DiscoveryClient client = DiscoveryClient.Create(uri);
+                System.Diagnostics.Debug.WriteLine(serverUrl);
                 //Search for available endpoints
                 EndpointDescriptionCollection endpoints = client.GetEndpoints(null);
+               
                 client.Close();
                 client.Dispose();
                 return endpoints;
@@ -119,7 +121,6 @@ namespace Siemens.UAClientHelper
                 throw e;
             }
         }
-
         #endregion Discovery
 
         #region Connect/Disconnect

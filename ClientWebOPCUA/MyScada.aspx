@@ -74,8 +74,8 @@
                     <h3>Pump 1</h3>
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                         <ContentTemplate>
-                            <asp:Button ID="Button1" runat="server" Text="Start" CssClass="sta_pump1" OnClick="sta_p1_Click" />
-                            <asp:Button ID="Button2" runat="server" Text="Stop" CssClass="sto_pump1" />
+                            <asp:Button ID="Button1" runat="server" Text="Start" CssClass="sta_pump1" OnClick="start_p1_Click" />
+                            <asp:Button ID="Button2" runat="server" Text="Stop" CssClass="sto_pump1" OnClick="stop_p1_Click" />
                             <asp:Image ID="Image38" runat="server" CssClass="led_pump1" ImageUrl="~/Img/light_green_off.png" />
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -161,8 +161,8 @@
                         <ContentTemplate>
                             <asp:Image ID="Image41" runat="server" CssClass="led_status" ImageUrl="/Img/light_green_off.png" />
                             <asp:Image ID="Image42" runat="server" CssClass="led_fault" ImageUrl="/Img/light_red_off.png" />
-                            <asp:ImageButton ID="ImageButton1" CssClass="emer" runat="server" ImageUrl="/Img/buttonpower_red_off.png" />
-                            <asp:ImageButton ID="ImageButton2" CssClass="reset" runat="server" ImageUrl="/Img/refresh.png" />
+                            <asp:ImageButton ID="ImageButton1" CssClass="emer" runat="server" ImageUrl="/Img/buttonpower_red_off.png" OnClick="Stop_Click" />
+                            <asp:ImageButton ID="ImageButton2" CssClass="reset" runat="server" ImageUrl="/Img/refresh.png" OnClick="Reset_Click" />
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
@@ -172,15 +172,14 @@
                         <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
                     </Triggers>
                     <ContentTemplate>
-                        <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer1_Tick"></asp:Timer>
-                    
+                        <asp:Timer ID="Timer1" runat="server" Interval="500" OnTick="Timer1_Tick" Enabled="false"></asp:Timer>
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </ContentTemplate>
         </ajaxToolkit:TabPanel>
         <ajaxToolkit:TabPanel runat="server" HeaderText="GraphTank" ID="TabPanel2" Height="700">
             <ContentTemplate>
-                <div id="chart-container-1" ></div>
+                <div id="chart-container-1"></div>
                 <div id="chart-container-2"></div>
             </ContentTemplate>
         </ajaxToolkit:TabPanel>
@@ -341,18 +340,18 @@
             }, 1000);
         });
 
-       FusionCharts.ready(function () {
+        FusionCharts.ready(function () {
             var chartObj = new FusionCharts({
                 type: 'cylinder',
                 dataFormat: 'json',
-                id:'tankchart1',
+                id: 'tankchart1',
                 renderAt: 'chart-container-3',
                 width: '200',
                 height: '250',
                 dataSource: {
                     chart: {
-                        caption :'Tank1',
-                        animation:'true',
+                        caption: 'Tank1',
+                        animation: 'true',
                         cylFillHoverColor: "#0099fd",
                         cylFillHoverAlpha: "85",
                         theme: "fusion",
@@ -363,10 +362,10 @@
                         numberSuffix: " ltrs",
                         showValue: "1",
                         chartBottomMargin: "20",
-                         refreshInterval:'1',
+                        refreshInterval: '1',
                         bgColor: "#0f2733",
                         valueFontColor: "#76a683",
-                         captionFontColor:"#06c6bc"
+                        captionFontColor: "#06c6bc"
                     },
                     value: 110,
                     annotations: {
@@ -374,24 +373,25 @@
                         origh: "190",
                         autoscale: "1",
                     }
-                }}).render();
-                            var myVar1 = setInterval(function () {
+                }
+            }).render();
+            var myVar1 = setInterval(function () {
                 FusionCharts.items["tankchart1"].feedData("&value=" + data1);
             }, 1000);
         });
 
-       FusionCharts.ready(function () {
+        FusionCharts.ready(function () {
             var chartObj = new FusionCharts({
                 type: 'cylinder',
                 dataFormat: 'json',
-                id:'tankchart2',
+                id: 'tankchart2',
                 renderAt: 'chart-container-4',
                 width: '200',
                 height: '250',
                 dataSource: {
                     chart: {
-                        caption :'Tank2',
-                        animation:'true',
+                        caption: 'Tank2',
+                        animation: 'true',
                         cylFillHoverColor: "#0099fd",
                         cylFillHoverAlpha: "85",
                         theme: "fusion",
@@ -402,10 +402,10 @@
                         numberSuffix: " ltrs",
                         showValue: "1",
                         chartBottomMargin: "20",
-                         refreshInterval:'1',
+                        refreshInterval: '1',
                         bgColor: "#0f2733",
                         valueFontColor: "#76a683",
-                         captionFontColor:"#06c6bc"
+                        captionFontColor: "#06c6bc"
                     },
                     value: 110,
                     annotations: {
@@ -413,13 +413,12 @@
                         origh: "190",
                         autoscale: "1",
                     }
-                }}).render();
-                            var myVar = setInterval(function () {
+                }
+            }).render();
+            var myVar = setInterval(function () {
                 FusionCharts.items["tankchart2"].feedData("&value=" + data2);
                 //console.log(data2);
             }, 1000);
         });
-
-
     </script>
 </asp:Content>
