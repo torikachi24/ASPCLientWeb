@@ -443,10 +443,14 @@
     <Content Include="Img\Handvalve_On.png" />
     <Content Include="Img\Levelsensor.png" />
     <Content Include="Img\Leveltransmitter.png" />
+    <Content Include="Img\light_green_off.jpg" />
     <Content Include="Img\light_green_off.png" />
     <Content Include="Img\light_green_on.png" />
     <Content Include="Img\light_red_off.png" />
+    <Content Include="Img\light_red_on.jpg" />
     <Content Include="Img\light_red_on.png" />
+    <Content Include="Img\light_yellow_off.png" />
+    <Content Include="Img\light_yellow_on.png" />
     <Content Include="Img\LogoAuto.png" />
     <Content Include="Img\Logobktrans.png" />
     <Content Include="Img\Pump.png" />

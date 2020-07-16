@@ -98,6 +98,7 @@
                                 <asp:Label ID="lv_tank1" ForeColor="White" Width="100px" CssClass="lv_tank1" runat="server"></asp:Label>
                                 <asp:Label ID="sta_tank1" ForeColor="White" Width="100px" CssClass="sta_tank1" runat="server"></asp:Label>
                                 <h3 id="lb_valve1">Valve 1</h3>
+                                <asp:Label ID="Valve1Status" CssClass="valve1stt" runat="server" Font-Size="Large" Text="None"></asp:Label>
                                 <asp:Button ID="Button11" CssClass="ope_val1" OnClick="ope_val1_Click" runat="server" Text="Open" />
                                 <asp:Button ID="Button12" CssClass="clo_val1" OnClick="clo_val1_Click" runat="server" Text="Close" />
                             </ContentTemplate>
@@ -112,6 +113,7 @@
                                 <asp:Label ID="lv_tank2" ForeColor="White" Width="100px" CssClass="lv_tank2" runat="server"></asp:Label>
                                 <asp:Label ID="sta_tank2" ForeColor="White" Width="100px" CssClass="sta_tank2" runat="server"></asp:Label>
                                 <h3 id="lb_valve2">Valve 2</h3>
+                                <asp:Label ID="Valve2Status" CssClass="valve2stt" Font-Size="Large" runat="server" Text="None"></asp:Label>
                                 <asp:Button ID="Button13" CssClass="ope_val2" OnClick="ope_val2_Click" runat="server" Text="Open" />
                                 <asp:Button ID="Button14" CssClass="clo_val2" OnClick="clo_val2_Click" runat="server" Text="Close" />
                             </ContentTemplate>
@@ -156,11 +158,16 @@
                     <h1>Mainboard</h1>
                     <asp:Label ID="Label3" CssClass="label_main" runat="server" Text="Status"></asp:Label>
                     <asp:Label ID="Label4" CssClass="fault_main" runat="server" Text="Fault"></asp:Label>
+                    <asp:Label ID="Label1" CssClass="emer_main" runat="server" Text="Emergency"></asp:Label>
 
                     <asp:UpdatePanel ID="UpdatePanel10" runat="server">
                         <ContentTemplate>
                             <asp:Image ID="Image41" runat="server" CssClass="led_status" ImageUrl="/Img/light_green_off.png" />
                             <asp:Image ID="Image42" runat="server" CssClass="led_fault" ImageUrl="/Img/light_red_off.png" />
+                            <asp:Image ID="Image45" runat="server" CssClass="led_Emer" Width="50px" ImageUrl="/Img/light_yellow_off.png" />
+                              <asp:Button ID="Auto" runat="server" CssClass="autobtn" Text="Auto" OnClick="Auto_Click"/>
+                            <asp:Button ID="Manual" runat="server" CssClass="manbtn" Text="Manual" OnClick="Manual_Click" />
+                          
                             <asp:ImageButton ID="ImageButton1" CssClass="emer" runat="server" ImageUrl="/Img/buttonpower_red_off.png" OnClick="Stop_Click" />
                             <asp:ImageButton ID="ImageButton2" CssClass="reset" runat="server" ImageUrl="/Img/refresh.png" OnClick="Reset_Click" />
                         </ContentTemplate>

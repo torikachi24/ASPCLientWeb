@@ -472,6 +472,15 @@ namespace ClientWebOPCUA {
         protected global::System.Web.UI.WebControls.Label sta_tank1;
         
         /// <summary>
+        /// Valve1Status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Valve1Status;
+        
+        /// <summary>
         /// Button11 control.
         /// </summary>
         /// <remarks>
@@ -515,6 +524,15 @@ namespace ClientWebOPCUA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label sta_tank2;
+        
+        /// <summary>
+        /// Valve2Status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Valve2Status;
         
         /// <summary>
         /// Button13 control.
@@ -661,6 +679,15 @@ namespace ClientWebOPCUA {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
         /// UpdatePanel10 control.
         /// </summary>
         /// <remarks>
@@ -686,6 +713,33 @@ namespace ClientWebOPCUA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image42;
+        
+        /// <summary>
+        /// Image45 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image45;
+        
+        /// <summary>
+        /// Auto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Auto;
+        
+        /// <summary>
+        /// Manual control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Manual;
         
         /// <summary>
         /// ImageButton1 control.

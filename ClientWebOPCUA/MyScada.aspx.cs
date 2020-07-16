@@ -227,6 +227,14 @@ namespace ClientWebOPCUA
                 {
                     Image42.ImageUrl = "/Img/light_red_off.png";
                 }
+                //if (data[9] == "True")
+                //{
+                //    Image45.ImageUrl = "/Img/light_yellow_on.png";
+                //}
+                //else
+                //{
+                //    Image45.ImageUrl = "/Img/light_yellow_off.png";
+                //}
             }
         }
 
@@ -316,10 +324,13 @@ namespace ClientWebOPCUA
                     if (data[10] == "True")
                     {
                         Image23.ImageUrl = "/Img/Handvalve_On.png";
+                        Valve1Status.Text = "On";
                     }
                     else
                     {
                         Image23.ImageUrl = "/Img/Handvalve.png";
+                        Valve1Status.Text = "Off";
+
                     }
                 }
             }
@@ -350,10 +361,12 @@ namespace ClientWebOPCUA
                     if (data[11] == "True")
                     {
                         Image24.ImageUrl = "/Img/Handvalve_On.png";
+                        Valve2Status.Text = "On";
                     }
                     else
                     {
                         Image24.ImageUrl = "/Img/Handvalve.png";
+                        Valve2Status.Text = "Off";
                     }
                 }
             }
@@ -765,6 +778,41 @@ namespace ClientWebOPCUA
             }
         }
         #endregion
-        
+
+        protected void Auto_Click(object sender, EventArgs e)
+        {
+            values = new List<string>();
+            nodeIdStrings = new List<string>();
+            nodeIdStrings.Add(item29);
+            values.Add("True");
+            try
+            {
+                Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);
+                ClientScript.RegisterStartupScript(this.GetType(), "Alert", "messtimer('success','Write Successful')", true);
+            }
+            catch (Exception ex)
+            {
+                PageUtility.MessageBox(this, ex.ToString());
+            }
+          
+        }
+
+        protected void Manual_Click(object sender, EventArgs e)
+        {
+            values = new List<string>();
+            nodeIdStrings = new List<string>();
+            nodeIdStrings.Add(item29);
+            values.Add("False");
+            try
+            {
+                Connect.myClientHelperAPI.WriteValues(values, nodeIdStrings);
+                ClientScript.RegisterStartupScript(this.GetType(), "Alert", "messtimer('success','Write Successful')", true);
+            }
+            catch (Exception ex)
+            {
+                PageUtility.MessageBox(this, ex.ToString());
+            }
+
+        }
     }
 }

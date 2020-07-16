@@ -334,7 +334,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Report Monitor Nodes ID</Value>
+                  <Value>Báo cáo giám sát các NodeID</Value>
                   <Style>
                     <FontSize>24pt</FontSize>
                     <FontWeight>Bold</FontWeight>

@@ -1,7 +1,10 @@
-﻿.LV{
-    text-align:center;
-    color:green;
-    font-size:large;
+﻿.LV {
+    text-align: center;
+    color: green;
+    font-size: 30px;
+    position: absolute;
+    top: 120px;
+    left: 600px;
 }
 h2 {
     text-align: center;
@@ -9,10 +12,4 @@ h2 {
     font-size: 40px;
     font-weight: bold;
     margin-top: 50px;
-}
-#frame{
-    background-color:black;
-    height:700px;
-    width:1200px;
-    
 }

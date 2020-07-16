@@ -720,8 +720,27 @@ h1 {
     text-align: center;
     font-size: large;
     position: absolute;
-    top: 123px;
-    left: 150px;
+    top: 43px;
+    left: 250px;
+}
+.emer_main {
+    text-align: center;
+    font-size: large;
+    position: absolute;
+    top: 43px;
+    left:10px;
+}
+.autobtn {
+    position: absolute;
+    left: 10px;
+    font-size: 20px;
+    width: 100px;
+}
+.manbtn {
+    position: absolute;
+    left: 160px;
+    font-size: 20px;
+    width: 100px;
 }
 
 .tabcontain {
@@ -749,8 +768,15 @@ h1 {
     position: absolute;
     height: 50px;
     width: 50px;
-    top: 145px;
-    left: 149px;
+    top: 66px;
+    left: 245px;
+}
+.led_Emer {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 66px;
+    left: 10px;
 }
 .tabcontain {
     width: 10px;
@@ -847,4 +873,13 @@ h1 {
     position: absolute;
     top: 20px;
     left: 600px;
+}
+.valve1stt{
+    text-align:center;
+    vertical-align:central;
+    
+}
+.valve2stt {
+    text-align: center;
+    vertical-align: central;
 }
