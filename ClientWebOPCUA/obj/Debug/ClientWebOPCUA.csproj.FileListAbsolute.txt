@@ -377,7 +377,7 @@ E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\pt\Microsoft.ReportViewer.WinForms
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\ru\Microsoft.ReportViewer.WinForms.resources.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\ClientWebOPCUA.csprojAssemblyReference.cache
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\ClientWebOPCUA.csproj.CopyComplete
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\ClientWebOPCUA.dll
 E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\ClientWebOPCUA.pdb
+E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\obj\Debug\ClientWebOPCUA.csprojAssemblyReference.cache

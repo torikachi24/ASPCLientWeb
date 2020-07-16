@@ -14,7 +14,6 @@
          <asp:Label ID="Label2" runat="server" Text="NGHIÊN CỨU VÀ PHÁT TRIỂN GIẢI PHÁP TÍCH HỢP HỆ THỐNG ĐIỀU KHIỂN VỚI ĐIỆN TOÁN ĐÁM MÂY SỬ DỤNG OPC UA"></asp:Label>
         <br />
         <asp:Label ID="Label3" runat="server" Text="RESEARCH AND DEVELOPMENT OF SOLUTION ABOUT INTEGRATION CONTROL SYSTEM TO CLOUD USING OPC UA"></asp:Label>
-
      <br />
         </div>
 </asp:Content>
