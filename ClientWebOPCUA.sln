@@ -5,12 +5,6 @@ VisualStudioVersion = 15.0.28307.1145
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWebOPCUA", "ClientWebOPCUA\ClientWebOPCUA.csproj", "{EF4382ED-A24B-4207-A775-B17D90A558A2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Opc.Ua.Client", "Opc.Ua.Client\Opc.Ua.Client.csproj", "{12275AD0-4580-4EC7-97F1-4A5E49204794}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Opc.Ua.Core", "Opc.Ua.Core\Opc.Ua.Core.csproj", "{711A0FA3-7BE5-40F0-9086-90231E7EB425}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Opc.Ua.Configuration", "Opc.Ua.Configuration\Opc.Ua.Configuration.csproj", "{6C49D692-24FF-4E5F-BF6F-D1D8E6C62486}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,24 +18,6 @@ Global
 		{EF4382ED-A24B-4207-A775-B17D90A558A2}.Gorilla|Any CPU.Build.0 = Release|Any CPU
 		{EF4382ED-A24B-4207-A775-B17D90A558A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF4382ED-A24B-4207-A775-B17D90A558A2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{12275AD0-4580-4EC7-97F1-4A5E49204794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12275AD0-4580-4EC7-97F1-4A5E49204794}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12275AD0-4580-4EC7-97F1-4A5E49204794}.Gorilla|Any CPU.ActiveCfg = Debug|Any CPU
-		{12275AD0-4580-4EC7-97F1-4A5E49204794}.Gorilla|Any CPU.Build.0 = Debug|Any CPU
-		{12275AD0-4580-4EC7-97F1-4A5E49204794}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12275AD0-4580-4EC7-97F1-4A5E49204794}.Release|Any CPU.Build.0 = Release|Any CPU
-		{711A0FA3-7BE5-40F0-9086-90231E7EB425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{711A0FA3-7BE5-40F0-9086-90231E7EB425}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{711A0FA3-7BE5-40F0-9086-90231E7EB425}.Gorilla|Any CPU.ActiveCfg = Debug|Any CPU
-		{711A0FA3-7BE5-40F0-9086-90231E7EB425}.Gorilla|Any CPU.Build.0 = Debug|Any CPU
-		{711A0FA3-7BE5-40F0-9086-90231E7EB425}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{711A0FA3-7BE5-40F0-9086-90231E7EB425}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C49D692-24FF-4E5F-BF6F-D1D8E6C62486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C49D692-24FF-4E5F-BF6F-D1D8E6C62486}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C49D692-24FF-4E5F-BF6F-D1D8E6C62486}.Gorilla|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C49D692-24FF-4E5F-BF6F-D1D8E6C62486}.Gorilla|Any CPU.Build.0 = Debug|Any CPU
-		{6C49D692-24FF-4E5F-BF6F-D1D8E6C62486}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C49D692-24FF-4E5F-BF6F-D1D8E6C62486}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

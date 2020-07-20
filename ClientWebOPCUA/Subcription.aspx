@@ -72,6 +72,10 @@
             <ajaxToolkit:TabPanel runat="server" HeaderText="Report" ID="TabPanel3" Height="560" ScrollBars="Horizontal">
                 <ContentTemplate>
                     <asp:Button ID="Button3" runat="server" Text="Load" OnClick="Load_Report_Click" />
+                    <asp:DropDownList ID="DropDownList1" runat="server">
+                        <asp:ListItem  Value="NewData"> NewData </asp:ListItem>
+                        <asp:ListItem Value="History"> History </asp:ListItem>
+                    </asp:DropDownList>
                     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                         <ContentTemplate>
                             <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="1100px" ProcessingMode="Local"></rsweb:ReportViewer>

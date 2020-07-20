@@ -93,13 +93,12 @@ namespace ClientWebOPCUA
         {
             try
             {
-
                 if (mySubscription == null)
                 {
                     mySubscription = Connect.myClientHelperAPI.Subscribe(1000);
                 }
                 int i = 0;
-              
+
                 myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item3, item3, 1);
                 i++;
                 myMonitoredItem = Connect.myClientHelperAPI.AddMonitoredItem(mySubscription, item6, item6, 1);
@@ -164,12 +163,15 @@ namespace ClientWebOPCUA
             }
             else
             {
-                System.Diagnostics.Debug.WriteLine(monitoredItem.DisplayName.ToString());
                 SqlCommand cmd2 = con.CreateCommand();
                 cmd2.CommandType = CommandType.Text;
                 cmd2.CommandText = "insert into scada values('" + monitoredItem.DisplayName.ToString() + "','" + notification.Value.WrappedValue.ToString() + "','" + notification.Value.ServerTimestamp.ToLocalTime() + "')";
                 cmd2.ExecuteNonQuery();
             }
+            SqlCommand cmd3 = con.CreateCommand();
+            cmd3.CommandType = CommandType.Text;
+            cmd3.CommandText = "insert into scada1 values('" + monitoredItem.DisplayName.ToString() + "','" + notification.Value.WrappedValue.ToString() + "','" + notification.Value.ServerTimestamp.ToLocalTime() + "')";
+            cmd3.ExecuteNonQuery();
         }
 
         protected void Timer1_Tick(object sender, EventArgs e)
@@ -217,7 +219,7 @@ namespace ClientWebOPCUA
                 }
                 else
                 {
-                    Image41.ImageUrl = "/Img/light_green_off.png";
+                    Image41.ImageUrl = "/Img/light_green_off.jpg";
                 }
                 if (data[9] == "True")
                 {
@@ -274,7 +276,7 @@ namespace ClientWebOPCUA
                     }
                     else
                     {
-                        Image36.ImageUrl = "/Img/light_green_off.png";
+                        Image36.ImageUrl = "/Img/light_green_off.jpg";
                     }
                 }
             }
@@ -293,7 +295,7 @@ namespace ClientWebOPCUA
                     }
                     else
                     {
-                        Image35.ImageUrl = "/Img/light_green_off.png";
+                        Image35.ImageUrl = "/Img/light_green_off.jpg";
                     }
                 }
             }
@@ -330,7 +332,6 @@ namespace ClientWebOPCUA
                     {
                         Image23.ImageUrl = "/Img/Handvalve.png";
                         Valve1Status.Text = "Off";
-
                     }
                 }
             }
@@ -387,11 +388,10 @@ namespace ClientWebOPCUA
                     else
                     {
                         Image11.ImageUrl = "/Img/Pump.png";
-                        Image38.ImageUrl = "/Img/light_green_off.png";
+                        Image38.ImageUrl = "/Img/light_green_off.jpg";
                     }
                 }
             }
-             
         }
 
         private void Pump2()
@@ -409,29 +409,49 @@ namespace ClientWebOPCUA
                     else
                     {
                         Image12.ImageUrl = "/Img/Pump.png";
-                        Image37.ImageUrl = "/Img/light_green_off.png";
+                        Image37.ImageUrl = "/Img/light_green_off.jpg";
                     }
                 }
             }
-           
         }
 
         protected void Load_Report_Click(object sender, EventArgs e)
         {
-            Timer1.Enabled = true;
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from scada";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            Timer1.Enabled = false;
-            ReportDataSource rds = new ReportDataSource("DataSet1", dt);
-            ReportViewer1.LocalReport.ReportPath = @"E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\ReportFile\ReportScada.rdlc";
-            ReportViewer1.LocalReport.DataSources.Clear();
-            ReportViewer1.LocalReport.DataSources.Add(rds);
-            ReportViewer1.LocalReport.Refresh();
+            if (DropDownList1.SelectedValue == "History")
+            {
+                Timer1.Enabled = true;
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from scada1 order by nodeid asc";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                Timer1.Enabled = false;
+                ReportDataSource rds = new ReportDataSource("DataSet1", dt);
+                ReportViewer1.LocalReport.ReportPath = @"E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\ReportFile\ReportScada.rdlc";
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.LocalReport.DataSources.Add(rds);
+                ReportViewer1.LocalReport.Refresh();
+            }
+            else
+            {
+                Timer1.Enabled = true;
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from scada";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                Timer1.Enabled = false;
+                ReportDataSource rds = new ReportDataSource("DataSet1", dt);
+                ReportViewer1.LocalReport.ReportPath = @"E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\ReportFile\ReportScada.rdlc";
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.LocalReport.DataSources.Add(rds);
+                ReportViewer1.LocalReport.Refresh();
+            }
+               
         }
 
         protected void TabContainer1_ActiveTabChanged1(object sender, EventArgs e)
@@ -447,6 +467,7 @@ namespace ClientWebOPCUA
         }
 
         #region System
+
         protected void Stop_Click(object sender, ImageClickEventArgs e)
         {
             values = new List<string>();
@@ -500,9 +521,11 @@ namespace ClientWebOPCUA
                 PageUtility.MessageBox(this, ex.ToString());
             }
         }
-        #endregion
+
+        #endregion System
 
         #region Valve
+
         protected void ope_val1_Click(object sender, EventArgs e)
         {
             values = new List<string>();
@@ -614,7 +637,8 @@ namespace ClientWebOPCUA
                 PageUtility.MessageBox(this, ex.ToString());
             }
         }
-        #endregion
+
+        #endregion Valve
 
         #region Gate
 
@@ -719,9 +743,11 @@ namespace ClientWebOPCUA
                 PageUtility.MessageBox(this, ex.ToString());
             }
         }
-        #endregion
+
+        #endregion Gate
 
         #region Pump
+
         protected void start_p1_Click(object sender, EventArgs e)
         {
             values = new List<string>();
@@ -777,10 +803,13 @@ namespace ClientWebOPCUA
                 PageUtility.MessageBox(this, ex.ToString());
             }
         }
-        #endregion
+
+        #endregion Pump
 
         protected void Auto_Click(object sender, EventArgs e)
         {
+            manbtn.CssClass = "btn btn-secondary";
+            autobtn.CssClass = "btn btn-success";
             values = new List<string>();
             nodeIdStrings = new List<string>();
             nodeIdStrings.Add(item29);
@@ -794,11 +823,12 @@ namespace ClientWebOPCUA
             {
                 PageUtility.MessageBox(this, ex.ToString());
             }
-          
         }
 
         protected void Manual_Click(object sender, EventArgs e)
         {
+            manbtn.CssClass = "btn btn-success";
+            autobtn.CssClass = "btn btn-secondary";
             values = new List<string>();
             nodeIdStrings = new List<string>();
             nodeIdStrings.Add(item29);
@@ -812,7 +842,6 @@ namespace ClientWebOPCUA
             {
                 PageUtility.MessageBox(this, ex.ToString());
             }
-
         }
     }
 }

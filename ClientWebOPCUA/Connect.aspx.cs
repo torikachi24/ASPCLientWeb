@@ -91,11 +91,11 @@ namespace ClientWebOPCUA
             Control subcribe = this.Page.Master.FindControl("list").FindControl("Subcribe");
             Control disconnect = this.Page.Master.FindControl("list").FindControl("Disconnect");
             Control scada = this.Page.Master.FindControl("list").FindControl("Scada");
+            scada.Visible = false;
             browse.Visible = false;
             rdwr.Visible = false;
             subcribe.Visible = false;
             disconnect.Visible = false;
-            scada.Visible = false;
         }
 
         protected void GetEnpoints_Click(object sender, EventArgs e)
@@ -255,7 +255,7 @@ namespace ClientWebOPCUA
 
         private void ControlEnable()
         {
-            if (mySession.Endpoint.EndpointUrl == "opc.tcp://45.124.94.180:4841")
+            if (mySession.Endpoint.EndpointUrl == "opc.tcp://45.124.94.180:4841/")
             {
                 Control browse = this.Page.Master.FindControl("list").FindControl("Browse");
                 Control rdwr = this.Page.Master.FindControl("list").FindControl("Rdwr");
@@ -266,8 +266,8 @@ namespace ClientWebOPCUA
                 browse.Visible = true;
                 rdwr.Visible = true;
                 subcribe.Visible = true;
-                disconnect.Visible = true;
                 scada.Visible = true;
+                disconnect.Visible = true;
             }
             else
             {
@@ -277,11 +277,11 @@ namespace ClientWebOPCUA
                 Control disconnect = this.Page.Master.FindControl("list").FindControl("Disconnect");
                 Control scada = this.Page.Master.FindControl("list").FindControl("Scada");
 
+                scada.Visible = false;
                 browse.Visible = true;
                 rdwr.Visible = true;
                 subcribe.Visible = true;
                 disconnect.Visible = true;
-                scada.Visible = false;
             }
         }
 

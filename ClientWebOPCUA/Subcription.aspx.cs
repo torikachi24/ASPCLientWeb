@@ -38,6 +38,13 @@ namespace ClientWebOPCUA
                     cmd.ExecuteNonQuery();
                     cmd.CommandText = "DBCC CHECKIDENT (subcription, RESEED, 0)";
                     cmd.ExecuteNonQuery();
+                    ////////////
+                    SqlCommand cmd1 = con.CreateCommand();
+                    cmd1.CommandType = CommandType.Text;
+                    cmd1.CommandText = "DELETE FROM subcription1 ";
+                    cmd1.ExecuteNonQuery();
+                    cmd1.CommandText = "DBCC CHECKIDENT (subcription1, RESEED, 0)";
+                    cmd1.ExecuteNonQuery();
                 }
             }
             disp_data();
@@ -127,9 +134,8 @@ namespace ClientWebOPCUA
             {
                 SqlCommand cmd1 = con.CreateCommand();
                 cmd1.CommandType = CommandType.Text;
-                cmd1.CommandText = "update subcription set Value='" + notification.Value.WrappedValue.ToString() + "',Time='" + DateTime.Now.ToString()  + "' where nodeid='" + monitoredItem.DisplayName.ToString() + "'";
+                cmd1.CommandText = "update subcription set Value='" + notification.Value.WrappedValue.ToString() + "',Time='" + DateTime.Now.ToString() + "' where nodeid='" + monitoredItem.DisplayName.ToString() + "'";
                 cmd1.ExecuteNonQuery();
-                // ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "adddata(" + notification.Value.WrappedValue.ToString() + ")", true);
             }
             else
             {
@@ -137,8 +143,13 @@ namespace ClientWebOPCUA
                 cmd2.CommandType = CommandType.Text;
                 cmd2.CommandText = "insert into subcription values('" + monitoredItem.DisplayName.ToString() + "','" + notification.Value.WrappedValue.ToString() + "','" + DateTime.Now.ToString() + "')";
                 cmd2.ExecuteNonQuery();
-                //ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "CallJS", "adddata(" + notification.Value.WrappedValue.ToString() + ")", true);
+                
             }
+            SqlCommand cmd4 = con.CreateCommand();
+            cmd4.CommandType = CommandType.Text;
+            cmd4.CommandText = "insert into subcription1 values('" + monitoredItem.DisplayName.ToString() + "','" + notification.Value.WrappedValue.ToString() + "','" + DateTime.Now.ToString() + "')";
+            cmd4.ExecuteNonQuery();
+
         }
 
         protected void Timer1_Tick(object sender, EventArgs e)
@@ -216,20 +227,42 @@ namespace ClientWebOPCUA
 
         protected void Load_Report_Click(object sender, EventArgs e)
         {
-            Timer1.Enabled = true;
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from subcription";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            Timer1.Enabled = false;
-            ReportDataSource rds = new ReportDataSource("DataSet1", dt);
-            ReportViewer1.LocalReport.ReportPath = @"E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\ReportFile\ReportMonitor.rdlc";
-            ReportViewer1.LocalReport.DataSources.Clear();
-            ReportViewer1.LocalReport.DataSources.Add(rds);
-            ReportViewer1.LocalReport.Refresh();
+            if (DropDownList1.SelectedValue == "History")
+            {
+                Timer1.Enabled = true;
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from subcription1 order by nodeid asc";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                Timer1.Enabled = false;
+                ReportDataSource rds = new ReportDataSource("DataSet1", dt);
+                ReportViewer1.LocalReport.ReportPath = @"E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\ReportFile\ReportMonitor.rdlc";
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.LocalReport.DataSources.Add(rds);
+                ReportViewer1.LocalReport.Refresh();
+            }
+            else
+            {
+                Timer1.Enabled = true;
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from subcription";
+                cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                Timer1.Enabled = false;
+                ReportDataSource rds = new ReportDataSource("DataSet1", dt);
+                ReportViewer1.LocalReport.ReportPath = @"E:\MyThesis\ClientWebOPCUA\ClientWebOPCUA\ReportFile\ReportMonitor.rdlc";
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.LocalReport.DataSources.Add(rds);
+                ReportViewer1.LocalReport.Refresh();
+
+            }
+            
         }
 
         protected void TabContainer1_ActiveTabChanged1(object sender, EventArgs e)

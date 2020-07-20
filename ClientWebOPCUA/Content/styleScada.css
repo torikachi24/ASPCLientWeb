@@ -468,7 +468,15 @@ h1 {
     padding: 5px;
     font-size: 20px;
     width: 100px;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
 }
+
+    .sta_pump1:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
 
 .sto_pump1 {
     position: absolute;
@@ -477,7 +485,15 @@ h1 {
     padding: 5px;
     font-size: 20px;
     width: 100px;
+    background-color: #f44336;
+    border: none;
+    cursor: pointer;
 }
+
+    .sto_pump1:hover {
+        background-color: #f44336;
+        color: white;
+    }
 
 .led_pump1 {
     position: absolute;
@@ -495,7 +511,15 @@ h1 {
     padding: 5px;
     font-size: 20px;
     width: 100px;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
 }
+
+    .sta_pump2:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
 
 .sto_pump2 {
     position: absolute;
@@ -504,7 +528,15 @@ h1 {
     padding: 5px;
     font-size: 20px;
     width: 100px;
+    background-color: #f44336;
+    border: none;
+    cursor: pointer;
 }
+
+    .sto_pump2:hover {
+        background-color: #f44336;
+        color: white;
+    }
 
 .led_pump2 {
     position: absolute;
@@ -521,7 +553,15 @@ h1 {
     left: 10px;
     font-size: 20px;
     width: 100px;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
 }
+
+    .ope_gate1:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
 
 .sto_gate1 {
     position: absolute;
@@ -529,7 +569,15 @@ h1 {
     top: 83px;
     font-size: 20px;
     width: 100px;
+    background-color: #f2e044;
+    border: none;
+    cursor: pointer;
 }
+
+    .sto_gate1:hover {
+        background-color: #f2e044;
+        color: white;
+    }
 
 .clo_gate1 {
     position: absolute;
@@ -537,7 +585,15 @@ h1 {
     top: 55px;
     font-size: 20px;
     width: 100px;
+    background-color: #f44336;
+    border: none;
+    cursor: pointer;
 }
+
+    .clo_gate1:hover {
+        background-color: #f44336;
+        color: white;
+    }
 
 .led_gate1 {
     position: absolute;
@@ -546,8 +602,6 @@ h1 {
     width: 80px;
     height: 80px
 }
-
-
 
 .led_gate2 {
     position: absolute;
@@ -562,7 +616,15 @@ h1 {
     left: 10px;
     font-size: 20px;
     width: 100px;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
 }
+
+    .ope_gate2:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
 
 .sto_gate2 {
     position: absolute;
@@ -570,7 +632,15 @@ h1 {
     top: 83px;
     font-size: 20px;
     width: 100px;
+    background-color: #f2e044;
+    border: none;
+    cursor: pointer;
 }
+
+    .sto_gate2:hover {
+        background-color: #f2e044;
+        color: white;
+    }
 
 .clo_gate2 {
     position: absolute;
@@ -578,15 +648,21 @@ h1 {
     top: 55px;
     font-size: 20px;
     width: 100px;
+    background-color: #f44336;
+    border: none;
+    cursor: pointer;
 }
 
-
+    .clo_gate2:hover {
+        background-color: #f44336;
+        color: white;
+    }
 
 .lv_tank1 {
     text-align: center;
-    left:50px;
-    position:absolute;
-    top:30px;
+    left: 50px;
+    position: absolute;
+    top: 30px;
 }
 
 .sta_tank1 {
@@ -616,7 +692,15 @@ h1 {
     font-size: 20px;
     padding: 10px 20px;
     top: 160px;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
 }
+
+    .ope_val1:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
 
 .clo_val1 {
     position: absolute;
@@ -624,7 +708,15 @@ h1 {
     font-size: 20px;
     padding: 10px 20px;
     top: 160px;
+    background-color: #f44336;
+    border: none;
+    cursor: pointer;
 }
+
+    .clo_val1:hover {
+        background-color: #f44336;
+        color: white;
+    }
 
 .ope_val2 {
     position: absolute;
@@ -632,7 +724,15 @@ h1 {
     font-size: 20px;
     padding: 10px 20px;
     top: 160px;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
 }
+
+    .ope_val2:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
 
 .clo_val2 {
     position: absolute;
@@ -640,7 +740,15 @@ h1 {
     font-size: 20px;
     padding: 10px 20px;
     top: 160px;
+    background-color: #f44336;
+    border: none;
+    cursor: pointer;
 }
+
+    .clo_val2:hover {
+        background-color: #f44336;
+        color: white;
+    }
 
 .lobk {
     position: absolute;
@@ -723,25 +831,48 @@ h1 {
     top: 43px;
     left: 250px;
 }
+
 .emer_main {
     text-align: center;
     font-size: large;
     position: absolute;
     top: 43px;
-    left:10px;
+    left: 25px;
 }
+
 .autobtn {
-    position: absolute;
-    left: 10px;
-    font-size: 20px;
-    width: 100px;
-}
-.manbtn {
     position: absolute;
     left: 160px;
     font-size: 20px;
     width: 100px;
+    top: 150px;
+    height: 50px;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
 }
+
+    .autobtn:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+.manbtn {
+    position: absolute;
+    left: 50px;
+    font-size: 20px;
+    width: 100px;
+    height: 50px;
+    top: 150px;
+    background-color: #a2ab9f;
+    border: none;
+    cursor: pointer;
+}
+
+    .manbtn:hover {
+        background-color: #a2ab9f;
+        color: white;
+    }
 
 .tabcontain {
     position: absolute;
@@ -757,13 +888,15 @@ h1 {
 #lb_valve2 {
     margin-top: 50px;
 }
-.led_status{
-    position:absolute;
-    height:50px;
-    width:50px;
-    top:66px;
-    left:149px;
+
+.led_status {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 66px;
+    left: 149px;
 }
+
 .led_fault {
     position: absolute;
     height: 50px;
@@ -771,13 +904,15 @@ h1 {
     top: 66px;
     left: 245px;
 }
+
 .led_Emer {
     position: absolute;
     height: 50px;
     width: 50px;
     top: 66px;
-    left: 10px;
+    left: 45px;
 }
+
 .tabcontain {
     width: 10px;
 }
@@ -863,10 +998,11 @@ h1 {
     display: inline-block;
     vertical-align: middle;
 }
-#chart-container-1{
-    position:absolute;
-    top:20px;
-    left:100px;
+
+#chart-container-1 {
+    position: absolute;
+    top: 20px;
+    left: 100px;
 }
 
 #chart-container-2 {
@@ -874,12 +1010,23 @@ h1 {
     top: 20px;
     left: 600px;
 }
-.valve1stt{
-    text-align:center;
-    vertical-align:central;
-    
+
+.valve1stt {
+    text-align: center;
+    vertical-align: central;
+    position: absolute;
+    left: 80px;
+    color: white;
+    font-size: large;
 }
+
 .valve2stt {
     text-align: center;
     vertical-align: central;
+    position: absolute;
+    left: 80px;
+    color: white;
+    font-size: large;
 }
+
+//# sourceMappingURL=bootstrap.min.js.map

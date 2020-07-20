@@ -7,7 +7,7 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="stylesheet" type="text/css" href="~/Content/styleMaster.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/styleMaster.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
@@ -89,15 +89,14 @@
                     <li runat="server" id="Rdwr"><a href="/Read_Write.aspx"><i class="fas fa-search"></i>Read/Write</a></li>
                     <li runat="server" id="Subcribe"><a href="/Subcription.aspx"><i class="fas fa-folder-plus"></i>Subscribe</a></li>
                     <li runat="server" id="Scada"><a href="/MyScada.aspx"><i class="fas fa-industry"></i>MyScada</a></li>
-                    <li><a href="/AboutUs.aspx"><i class="fas fa-bookmark"></i>About</a></li>
                     <li runat="server" id="Disconnect"><a href="#" onserverclick="DisConnect" runat="server"><i class="fas fa-sign-out-alt"></i>DisConnect</a></li>
                 </ul>
 
                 <div class="social_media">
                     <a href="https://www.hcmut.edu.vn/vi">
-                        <img src="/Img/Logobktrans.png"/></a>
+                        <img src="/Img/Logobktrans.png" /></a>
                     <a href="http://dca.dee.hcmut.edu.vn/">
-                        <img src="/Img/LogoAuto.png"/></a>
+                        <img src="/Img/LogoAuto.png" /></a>
                 </div>
                 <label class="Signature">Power by Me</label>
             </div>

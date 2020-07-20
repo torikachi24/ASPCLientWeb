@@ -76,7 +76,7 @@
                         <ContentTemplate>
                             <asp:Button ID="Button1" runat="server" Text="Start" CssClass="sta_pump1" OnClick="start_p1_Click" />
                             <asp:Button ID="Button2" runat="server" Text="Stop" CssClass="sto_pump1" OnClick="stop_p1_Click" />
-                            <asp:Image ID="Image38" runat="server" CssClass="led_pump1" ImageUrl="~/Img/light_green_off.png" />
+                            <asp:Image ID="Image38" runat="server" CssClass="led_pump1" ImageUrl="~/Img/light_green_off.jpg" />
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
@@ -86,7 +86,7 @@
                         <ContentTemplate>
                             <asp:Button ID="Button3" runat="server" Text="Start" CssClass="sta_pump2" />
                             <asp:Button ID="Button4" runat="server" Text="Stop" CssClass="sto_pump2" />
-                            <asp:Image ID="Image37" runat="server" CssClass="led_pump2" ImageUrl="/Img/light_green_off.png" />
+                            <asp:Image ID="Image37" runat="server" CssClass="led_pump2" ImageUrl="/Img/light_green_off.jpg" />
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
@@ -127,7 +127,7 @@
                             <asp:Button ID="Button7" OnClick="open_gate1_Click" runat="server" Text="Open" CssClass="ope_gate1" />
                             <asp:Button ID="Button8" runat="server" OnClick="stop_gate1_Click" Text="Stop" CssClass="sto_gate1" />
                             <asp:Button ID="Button10" runat="server" OnClick="close_gate1_Click" Text="Close" CssClass="clo_gate1" />
-                            <asp:Image ID="Image35" runat="server" CssClass="led_gate1" ImageUrl="/Img/light_green_off.png" />
+                            <asp:Image ID="Image35" runat="server" CssClass="led_gate1" ImageUrl="/Img/light_green_off.jpg" />
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
@@ -138,7 +138,7 @@
                             <asp:Button ID="Button5" runat="server" OnClick="open_gate2_Click" Text="Open" CssClass="ope_gate2" />
                             <asp:Button ID="Button6" runat="server" Text="Stop" OnClick="stop_gate2_Click" CssClass="sto_gate2" />
                             <asp:Button ID="Button9" runat="server" Text="Close" OnClick="close_gate2_Click" CssClass="clo_gate2" />
-                            <asp:Image ID="Image36" runat="server" CssClass="led_gate2" ImageUrl="/Img/light_green_off.png" />
+                            <asp:Image ID="Image36" runat="server" CssClass="led_gate2" ImageUrl="/Img/light_green_off.jpg" />
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
@@ -162,12 +162,11 @@
 
                     <asp:UpdatePanel ID="UpdatePanel10" runat="server">
                         <ContentTemplate>
-                            <asp:Image ID="Image41" runat="server" CssClass="led_status" ImageUrl="/Img/light_green_off.png" />
+                            <asp:Image ID="Image41" runat="server" CssClass="led_status" ImageUrl="/Img/light_green_off.jpg" />
                             <asp:Image ID="Image42" runat="server" CssClass="led_fault" ImageUrl="/Img/light_red_off.png" />
                             <asp:Image ID="Image45" runat="server" CssClass="led_Emer" Width="50px" ImageUrl="/Img/light_yellow_off.png" />
-                              <asp:Button ID="Auto" runat="server" CssClass="autobtn" Text="Auto" OnClick="Auto_Click"/>
-                            <asp:Button ID="Manual" runat="server" CssClass="manbtn" Text="Manual" OnClick="Manual_Click" />
-                          
+                            <asp:Button ID="manbtn" CssClass="manbtn" runat="server" Text="Manual" OnClick="Manual_Click" />
+                            <asp:Button ID="autobtn" CssClass="autobtn" runat="server" Text="Auto" OnClick="Auto_Click" />
                             <asp:ImageButton ID="ImageButton1" CssClass="emer" runat="server" ImageUrl="/Img/buttonpower_red_off.png" OnClick="Stop_Click" />
                             <asp:ImageButton ID="ImageButton2" CssClass="reset" runat="server" ImageUrl="/Img/refresh.png" OnClick="Reset_Click" />
                         </ContentTemplate>
@@ -193,6 +192,10 @@
         <ajaxToolkit:TabPanel runat="server" HeaderText="Report" ID="TabPanel3" Height="700">
             <ContentTemplate>
                 <asp:Button ID="Button15" runat="server" Text="Load Report" OnClick="Load_Report_Click" />
+                <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:ListItem Value="NewData"> NewData </asp:ListItem>
+                    <asp:ListItem Value="History"> History </asp:ListItem>
+                </asp:DropDownList>
                 <asp:UpdatePanel ID="UpdatePanel11" runat="server">
                     <ContentTemplate>
                         <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="1100px"></rsweb:ReportViewer>
